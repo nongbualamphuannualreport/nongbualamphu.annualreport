@@ -64,3 +64,24 @@
 @media(max-width:680px){.interactive-map-card{padding:14px}.svg-map-wrap{min-height:340px}.district-svg .map-region text{font-size:14px}.district-metrics{grid-template-columns:1fr 1fr}.district-detail-card{padding:20px}.identity-band{padding:22px;border-radius:22px}.identity-band h2{font-size:24px}}
 
 @media(max-width:640px){.brand-seal{width:46px;height:46px}.brand-seal.mini{width:36px;height:36px}}
+
+/* V1.2 — Nong Bua Lamphu district map traced from supplied reference */
+.district-svg.nbl-real-shape{width:min(100%,520px);max-height:620px}
+.district-svg.nbl-real-shape .map-region path{
+  stroke:#ffffff;
+  stroke-width:3;
+  vector-effect:non-scaling-stroke;
+}
+.district-svg.nbl-real-shape .map-region text{
+  font-size:11px;
+  fill:#294d43;
+  paint-order:stroke;
+  stroke:rgba(255,255,255,.95);
+  stroke-width:3px;
+  stroke-linejoin:round;
+}
+.map-source-note{margin-top:10px;text-align:center;color:#7b8d87;font-size:10px;line-height:1.55}
+@media(max-width:640px){
+  .district-svg.nbl-real-shape .map-region text{font-size:10px}
+  .svg-map-wrap{min-height:420px}
+}

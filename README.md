@@ -28,5 +28,9 @@ Build Command: เว้นว่าง
 Output Directory: ./
 
 
-## Logo
-ใช้ตราจังหวัดหนองบัวลำภูที่ `assets/images/logo/nongbualamphu-logo.png`
+## V1.2 Complete
+- รวมโครงสร้างกลับมาใช้ Master แบบ `assets/...` ชุดเดียว
+- ใส่ตราจังหวัดหนองบัวลำภูใน Header/Footer
+- ปรับ Interactive Map ให้เป็นรูปทรงจังหวัดตามภาพอ้างอิงที่ผู้ว่าจ้างจัดส่ง
+- แยก 6 อำเภอ และคง Hover / Click / Tap Interaction
+- ไม่มีการสร้างตัวเลขรายอำเภอที่ยังไม่ได้รับข้อมูลจริง

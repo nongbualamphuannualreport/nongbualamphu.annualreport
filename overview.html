@@ -2,128 +2,37 @@
 <section class="page-hero"><div class="container"><div class="breadcrumbs">Annual Report / ภาพรวมจังหวัด</div><h1>ภาพรวมจังหวัดหนองบัวลำภู</h1><p>ข้อมูลพื้นฐาน เศรษฐกิจ ประชากร การท่องเที่ยว และโครงสร้างการปกครอง ถูกจัดให้อ่านง่ายและเชื่อมโยงกันในหน้าเดียว</p><div class="pill"><span class="tag">ข้อมูลตัวอย่างจากชุดข้อมูลที่ใช้จัดทำแผนจังหวัด</span></div></div></section>
 <section class="section compact"><div class="container"><div class="grid grid-5 reveal"><div class="card stat-card tone-green"><div class="stat-icon">👥</div><div class="stat-label">ประชากร</div><div class="stat-value">502,088</div><div class="stat-foot">คน • 102,885 ครัวเรือน</div></div><div class="card stat-card tone-blue"><div class="stat-icon">🗺️</div><div class="stat-label">พื้นที่</div><div class="stat-value">3,859.1</div><div class="stat-foot">ตร.กม.</div></div><div class="card stat-card tone-pink"><div class="stat-icon">🏛️</div><div class="stat-label">การปกครอง</div><div class="stat-value">6</div><div class="stat-foot">อำเภอ • 59 ตำบล</div></div><div class="card stat-card tone-gold"><div class="stat-icon">🏘️</div><div class="stat-label">หมู่บ้าน / ชุมชน</div><div class="stat-value">688</div><div class="stat-foot">หมู่บ้าน • 33 ชุมชน</div></div><div class="card stat-card tone-purple"><div class="stat-icon">🏢</div><div class="stat-label">องค์กรปกครองส่วนท้องถิ่น</div><div class="stat-value">68</div><div class="stat-foot">แห่ง</div></div></div></div></section>
 
-
-<section class="section alt" id="interactive-map">
- <div class="container">
-  <div class="section-head reveal"><div><span class="tag">Interactive Map</span><h2>สำรวจข้อมูลรายอำเภอ</h2><p>วางเมาส์หรือแตะพื้นที่เพื่อดูรายละเอียด โดยใช้รูปแบบแผนที่จังหวัดหนองบัวลำภูแยกตาม 6 อำเภอ</p></div></div>
-  <div class="map-layout">
-   <div class="map-shell reveal">
-    <div class="map-title-float">แผนที่จังหวัดหนองบัวลำภู · 6 อำเภอ · โครงสำหรับเชื่อมข้อมูลจริง</div>
-    <svg id="district-map" class="schematic-map" viewBox="0 0 620 720" aria-label="แผนที่จังหวัดหนองบัวลำภูแยกตามอำเภอ">
-      <!-- Suwannakhuha -->
-      <g class="district" data-id="suwannakhuha">
-        <path d="M210 62
-                 L295 48
-                 L330 55
-                 L340 102
-                 L332 156
-                 L360 230
-                 L300 236
-                 L272 218
-                 L244 228
-                 L212 214
-                 L190 182
-                 L166 174
-                 L154 132
-                 L180 118
-                 L176 88 Z" fill="#dcefe5"/>
-        <text x="235" y="136">สุวรรณคูหา</text>
-      </g>
-
-      <!-- Na Wang -->
-      <g class="district" data-id="nawang">
-        <path d="M116 196
-                 L166 174
-                 L190 182
-                 L212 214
-                 L210 268
-                 L186 312
-                 L168 382
-                 L140 392
-                 L118 360
-                 L100 300
-                 L70 280
-                 L62 240
-                 L86 210 Z" fill="#f5e1e8"/>
-        <text x="104" y="284">นาวัง</text>
-      </g>
-
-      <!-- Na Klang -->
-      <g class="district" data-id="naklang">
-        <path d="M212 214
-                 L244 228
-                 L272 218
-                 L300 236
-                 L314 290
-                 L292 336
-                 L254 360
-                 L238 424
-                 L180 428
-                 L168 382
-                 L186 312
-                 L210 268 Z" fill="#ece4f5"/>
-        <text x="220" y="302">นากลาง</text>
-      </g>
-
-      <!-- Mueang -->
-      <g class="district" data-id="mueang">
-        <path d="M314 290
-                 L356 292
-                 L392 328
-                 L442 330
-                 L422 356
-                 L406 402
-                 L398 456
-                 L360 494
-                 L326 512
-                 L294 510
-                 L272 472
-                 L238 424
-                 L254 360
-                 L292 336 Z" fill="#f5edd9"/>
-        <text x="296" y="392">เมืองหนองบัวลำภู</text>
-      </g>
-
-      <!-- Si Bun Rueang -->
-      <g class="district" data-id="sibunrueang">
-        <path d="M116 392
-                 L140 392
-                 L168 382
-                 L180 428
-                 L238 424
-                 L272 472
-                 L236 538
-                 L210 586
-                 L146 600
-                 L104 568
-                 L72 574
-                 L52 548
-                 L64 486
-                 L92 442 Z" fill="#dcebf8"/>
-        <text x="120" y="515">ศรีบุญเรือง</text>
-      </g>
-
-      <!-- Non Sang -->
-      <g class="district" data-id="nonsang">
-        <path d="M398 456
-                 L440 470
-                 L472 536
-                 L454 598
-                 L448 664
-                 L366 650
-                 L298 632
-                 L276 600
-                 L236 538
-                 L272 472
-                 L294 510
-                 L326 512
-                 L360 494 Z" fill="#dff0df"/>
-        <text x="346" y="548">โนนสัง</text>
-      </g>
-    </svg>
-   </div>
-   <div class="map-detail reveal"><div class="detail-card" id="district-detail"></div></div>
+<section class="section alt" id="interactive-map"><div class="container">
+  <div class="section-head reveal"><div><h2 class="section-title"><small>INTERACTIVE DISTRICT MAP</small>สำรวจข้อมูล 6 อำเภอ</h2><p class="section-desc">แผนที่ Interactive แยก 6 อำเภอ สำหรับ Hover/Click บน PC และ Tap บนมือถือ พร้อมพื้นที่รองรับข้อมูลประชากร โครงการ และงบประมาณรายอำเภอในอนาคต</p></div></div>
+  <div class="interactive-map-grid">
+    <div class="card interactive-map-card reveal"><span class="map-badge">แผนที่จังหวัดหนองบัวลำภู — แยกพื้นที่ 6 อำเภอ</span>
+      <div class="svg-map-wrap" data-interactive-map>
+        <svg class="district-svg nbl-real-shape" viewBox="0 0 360 445" aria-label="แผนที่จังหวัดหนองบัวลำภู แยก 6 อำเภอ">
+          <g class="map-region" data-district="suwannakhuha">
+          <path d="M 61 34 L 65 41 L 71 46 L 76 62 L 84 69 L 83 77 L 86 81 L 84 92 L 80 93 L 81 96 L 90 101 L 93 101 L 95 98 L 101 98 L 115 107 L 118 112 L 124 111 L 130 113 L 140 124 L 139 128 L 146 132 L 151 128 L 157 135 L 163 136 L 165 127 L 172 125 L 174 127 L 180 126 L 189 129 L 193 133 L 203 134 L 190 98 L 172 72 L 173 60 L 169 53 L 166 15 L 154 17 L 158 20 L 157 22 L 146 20 L 142 24 L 135 21 L 127 23 L 114 23 L 107 20 L 100 23 L 91 21 L 79 35 L 76 36 L 68 30 Z" fill="#dff1e7"/>
+          <text x="134" y="73">สุวรรณคูหา</text>
+        </g><g class="map-region" data-district="nawang">
+          <path d="M 72 105 L 63 113 L 46 120 L 37 116 L 21 117 L 18 115 L 15 122 L 19 131 L 15 136 L 30 153 L 31 156 L 28 159 L 32 168 L 26 173 L 18 172 L 16 178 L 21 187 L 29 193 L 28 195 L 33 195 L 43 207 L 54 207 L 61 217 L 61 228 L 64 233 L 66 224 L 63 209 L 69 203 L 69 193 L 76 187 L 75 178 L 69 173 L 73 169 L 70 156 L 71 151 L 69 148 L 73 140 L 68 135 L 65 127 L 66 121 L 70 119 L 75 112 Z" fill="#f8dce8"/>
+          <text x="48" y="161">นาวัง</text>
+        </g><g class="map-region" data-district="naklang">
+          <path d="M 81 98 L 74 104 L 77 112 L 73 119 L 67 124 L 69 133 L 75 139 L 71 148 L 73 150 L 72 156 L 76 169 L 72 173 L 77 177 L 79 186 L 77 190 L 71 194 L 71 203 L 65 209 L 68 223 L 66 237 L 68 242 L 78 240 L 82 245 L 87 243 L 96 248 L 104 247 L 110 253 L 121 254 L 127 259 L 128 264 L 132 260 L 130 255 L 131 250 L 146 231 L 144 222 L 148 217 L 147 211 L 135 198 L 139 192 L 129 177 L 128 172 L 130 172 L 130 169 L 133 167 L 139 173 L 143 181 L 148 180 L 153 183 L 155 173 L 160 168 L 161 164 L 159 158 L 160 151 L 166 156 L 178 159 L 194 149 L 200 148 L 204 151 L 213 152 L 203 136 L 196 136 L 186 130 L 183 131 L 180 128 L 174 129 L 172 127 L 167 129 L 167 133 L 163 138 L 157 137 L 151 130 L 147 135 L 137 129 L 138 125 L 130 115 L 124 113 L 117 114 L 114 109 L 101 100 L 89 103 Z" fill="#eee5f6"/>
+          <text x="116" y="175">นากลาง</text>
+        </g><g class="map-region" data-district="mueang">
+          <path d="M 161 154 L 163 165 L 162 169 L 157 173 L 154 185 L 147 182 L 143 184 L 136 172 L 132 170 L 135 174 L 133 179 L 142 193 L 137 198 L 149 211 L 150 215 L 146 222 L 148 231 L 133 250 L 133 261 L 143 260 L 149 265 L 159 266 L 169 271 L 174 285 L 174 292 L 170 299 L 174 308 L 169 327 L 169 341 L 172 344 L 179 340 L 185 347 L 192 345 L 194 347 L 194 357 L 208 357 L 212 339 L 223 320 L 231 312 L 239 311 L 243 313 L 248 321 L 252 323 L 260 318 L 273 317 L 284 309 L 285 306 L 268 293 L 257 277 L 252 261 L 259 257 L 254 247 L 255 244 L 251 234 L 260 221 L 266 219 L 269 224 L 273 216 L 283 216 L 291 205 L 283 209 L 273 207 L 267 208 L 259 199 L 252 195 L 247 195 L 241 200 L 233 200 L 231 197 L 223 198 L 221 196 L 222 174 L 214 154 L 195 151 L 178 161 L 166 158 Z" fill="#f5e8cf"/>
+          <text x="213" y="250">เมืองหนองบัวลำภู</text>
+        </g><g class="map-region" data-district="sibunrueang">
+          <path d="M 31 232 L 36 237 L 37 245 L 43 249 L 38 254 L 31 256 L 31 262 L 35 265 L 47 266 L 54 272 L 62 272 L 64 276 L 68 278 L 68 285 L 70 286 L 69 294 L 75 297 L 82 307 L 92 311 L 90 316 L 84 320 L 77 331 L 63 335 L 52 344 L 45 342 L 36 347 L 43 367 L 51 371 L 54 376 L 58 374 L 65 377 L 64 375 L 66 372 L 70 371 L 78 378 L 93 378 L 95 383 L 99 385 L 104 383 L 108 389 L 113 387 L 118 388 L 129 378 L 133 380 L 137 372 L 156 373 L 158 377 L 161 376 L 163 378 L 161 380 L 164 384 L 169 384 L 171 386 L 168 390 L 174 392 L 174 394 L 171 395 L 178 400 L 177 405 L 179 407 L 182 402 L 191 409 L 194 407 L 200 410 L 206 409 L 206 404 L 198 393 L 198 385 L 194 385 L 188 381 L 193 370 L 192 366 L 196 363 L 196 359 L 191 357 L 192 347 L 184 349 L 178 342 L 172 346 L 167 341 L 167 327 L 171 311 L 168 298 L 172 291 L 168 273 L 158 268 L 151 268 L 146 263 L 137 262 L 135 264 L 131 263 L 126 267 L 125 260 L 120 256 L 109 255 L 104 249 L 96 250 L 87 245 L 81 247 L 78 242 L 73 244 L 67 243 L 59 248 L 50 233 L 38 227 L 34 232 Z" fill="#e6eef8"/>
+          <text x="116" y="322">ศรีบุญเรือง</text>
+        </g><g class="map-region" data-district="nonsang">
+          <path d="M 327 328 L 316 325 L 302 314 L 287 307 L 275 318 L 260 320 L 252 325 L 248 324 L 241 314 L 232 314 L 220 328 L 214 340 L 210 358 L 198 360 L 197 365 L 194 367 L 195 372 L 191 381 L 201 385 L 199 388 L 201 390 L 200 392 L 208 404 L 208 410 L 215 418 L 219 417 L 226 419 L 225 415 L 231 410 L 237 414 L 240 412 L 250 414 L 269 423 L 301 428 L 301 413 L 306 395 L 331 344 L 332 338 Z" fill="#d8eee6"/>
+          <text x="264" y="367">โนนสัง</text>
+        </g>
+        </svg>
+      <div class="map-source-note">รูปทรงเขตอำเภออ้างอิงจากแผนที่ที่ผู้ว่าจ้างจัดส่ง เพื่อใช้ในการออกแบบ Interactive Preview • หากได้รับไฟล์ GIS/SVG ทางการ สามารถเปลี่ยนเป็นขอบเขตเชิงพิกัดได้ภายหลัง</div></div>
+    </div>
+    <div class="card district-detail-card reveal" data-district-detail></div>
   </div>
- </div>
-</section>
-
+  <div class="note reveal" style="margin-top:15px">หลักการ: Hover แสดงข้อมูลย่อเท่านั้น ส่วนข้อมูลเชิงลึกจะเปิดเมื่อคลิก/แตะ เพื่อลดความรกของหน้าเว็บ และหากชุดข้อมูลบางรายการไม่มี จะซ่อนรายการนั้นแทนการใส่ตัวเลขสมมติ</div>
+</div></section>
+<section class="section"><div class="container"><div class="section-head reveal"><div><h2 class="section-title"><small>PROVINCE PROFILE</small>ข้อมูลที่ประชาชนควรเห็นใน 30 วินาที</h2><p class="section-desc">แทนการค้นข้อมูลจากหลายหน้า เว็บไซต์รวมสาระสำคัญไว้เป็น Card และกราฟที่อ่านได้บนมือถือ</p></div></div><div class="grid grid-3 reveal"><div class="card pad"><div class="feature-list"><div class="feature-row"><span class="feature-icon">🌾</span><div><b>ฐานเศรษฐกิจเกษตร</b><p>นำข้อมูลภาคเกษตร แหล่งน้ำ ปศุสัตว์ และการแปรรูปมาสรุปเป็นตัวชี้วัด</p></div></div><div class="feature-row"><span class="feature-icon">🧵</span><div><b>อัตลักษณ์เมืองผ้า</b><p>เพิ่มพื้นที่เล่าเรื่องผลิตภัณฑ์ ชุมชน และภูมิปัญญาท้องถิ่น</p></div></div></div></div><div class="card pad"><div class="feature-list"><div class="feature-row"><span class="feature-icon">📍</span><div><b>เมืองน่าเที่ยว</b><p>เชื่อมข้อมูลแหล่งท่องเที่ยว กิจกรรม เส้นทาง และโครงการพัฒนาพื้นที่</p></div></div><div class="feature-row"><span class="feature-icon">🏡</span><div><b>เมืองน่าอยู่</b><p>แสดงข้อมูลด้านคุณภาพชีวิต สังคม สาธารณสุข และโครงสร้างพื้นฐาน</p></div></div></div></div><div class="card pad"><div class="feature-list"><div class="feature-row"><span class="feature-icon">📊</span><div><b>Dashboard พร้อมใช้ในการนำเสนอ</b><p>ผู้บริหารสามารถใช้เว็บไซต์เปิดประกอบการประชุมหรือแชร์ลิงก์ให้ประชาชนดูได้ทันที</p></div></div><div class="feature-row"><span class="feature-icon">📱</span><div><b>Responsive ทุกอุปกรณ์</b><p>หน้าเดียวกันอ่านได้ทั้ง Desktop, Tablet และ Smartphone</p></div></div></div></div></div></div></section>
+</main><div data-site-footer></div><script src="assets/js/data.js"></script><script src="assets/js/app.js"></script></body></html>

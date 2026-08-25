@@ -3,18 +3,18 @@
   const year = (window.NBL_DATA && window.NBL_DATA.meta.year) || '2569';
 
   const navItems = [
-    ['home', 'หน้าแรก', 'index.html'],
-    ['overview', 'ภาพรวมจังหวัด', 'overview.html'],
-    ['strategy', 'ยุทธศาสตร์', 'strategy.html'],
+    ['home', 'หน้าหลัก', 'index.html'],
+    ['overview', 'ข้อมูลทั่วไปจังหวัด', 'overview.html'],
+    ['strategy', 'ยุทธศาสตร์จังหวัด', 'strategy.html'],
     ['results', 'ผลการดำเนินงานและงบประมาณ', 'results.html'],
-    ['projects', 'โครงการเด่น', 'projects.html'],
+    ['projects', 'โครงการสำคัญ', 'projects.html'],
     ['downloads', 'ดาวน์โหลดรายงาน', 'downloads.html']
   ];
 
   const header = document.querySelector('[data-site-header]');
   if (header) {
     header.innerHTML = `
-      <div class="demo-ribbon"><span>V1</span> ต้นแบบเว็บไซต์ Digital Annual Report — ข้อมูลบางส่วนอยู่ระหว่างรวบรวมและตรวจสอบ</div>
+      <div class="demo-ribbon"><span>2569</span> Digital Annual Report จังหวัดหนองบัวลำภู · ข้อมูลอยู่ระหว่างตรวจสอบก่อนเผยแพร่ฉบับสมบูรณ์</div>
       <header class="site-header">
         <div class="container header-inner">
           <a class="brand" href="index.html" aria-label="Annual Report จังหวัดหนองบัวลำภู">
@@ -36,16 +36,21 @@
       <footer class="site-footer">
         <div class="container footer-grid">
           <div>
-            <div class="footer-brand"><span class="brand-seal mini"><img src="assets/images/logo/nongbualamphu-logo.png" alt="ตราจังหวัดหนองบัวลำภู"></span><div><b>จังหวัดหนองบัวลำภู</b><small>Digital Annual Report V1</small></div></div>
-            <p class="muted">ตัวอย่างเว็บไซต์เพื่อสาธิตแนวทางการนำเสนอรายงานผลการดำเนินงานจังหวัดในรูปแบบดิจิทัล</p>
+            <div class="footer-brand"><span class="brand-seal mini"><img src="assets/images/logo/nongbualamphu-logo.png" alt="ตราจังหวัดหนองบัวลำภู"></span><div><b>จังหวัดหนองบัวลำภู</b><small>Digital Annual Report</small></div></div>
+            <p class="muted">เว็บไซต์รายงานผลการดำเนินงานจังหวัดหนองบัวลำภูในรูปแบบดิจิทัล</p>
           </div>
           <div><b>รายงาน</b><a href="overview.html">ภาพรวมจังหวัด</a><a href="results.html">ผลการดำเนินงานและงบประมาณ</a><a href="projects.html">โครงการสำคัญ</a></div>
           <div><b>ข้อมูลสำคัญ</b><a href="strategy.html">ยุทธศาสตร์จังหวัด</a><a href="overview.html#interactive-map">ข้อมูลรายอำเภอ</a><a href="downloads.html">ดาวน์โหลดรายงาน</a></div>
-          <div class="footer-cta"><b>Annual Report ${year}</b><p>พร้อมต่อยอดเป็นเว็บไซต์จริงบนโดเมนของจังหวัด</p><a class="button small" href="downloads.html">ดูศูนย์ดาวน์โหลด</a></div>
+          <div class="footer-cta"><b>Annual Report ${year}</b><p>ศูนย์รวมข้อมูลและเอกสารรายงานผลการดำเนินงานของจังหวัด</p><a class="button small" href="downloads.html">ดูศูนย์ดาวน์โหลด</a></div>
         </div>
-        <div class="footer-bottom"><div class="container">© 2569 จังหวัดหนองบัวลำภู — V1 Concept &nbsp;•&nbsp; Responsive Web Design</div></div>
+        <div class="footer-bottom"><div class="container">© 2569 จังหวัดหนองบัวลำภู · Digital Annual Report</div></div>
       </footer>`;
   }
+
+  const stickyHeader = document.querySelector('.site-header');
+  const syncHeader = () => { if (stickyHeader) stickyHeader.classList.toggle('is-scrolled', window.scrollY > 40); };
+  syncHeader();
+  window.addEventListener('scroll', syncHeader, { passive: true });
 
   const navToggle = document.querySelector('.nav-toggle');
   const mainNav = document.querySelector('.main-nav');

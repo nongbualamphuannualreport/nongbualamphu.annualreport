@@ -39,3 +39,13 @@ Output Directory: ./
 ## V1.3 Favicon
 - ใช้ตราจังหวัดหนองบัวลำภูเป็น Favicon
 - มี `favicon.ico`, PNG 32/48px และ Apple Touch Icon 180px
+
+
+## V1.4 — Production Homepage
+- ปรับหน้าแรกเป็น Production Design
+- ใช้ 6 เมนูตาม TOR
+- Hero / KPI / Budget Dashboard / Strategy / Project / Download CTA
+- Sticky Header ลดความสูงเมื่อ Scroll
+- ปรับ Responsive สำหรับ PC / Tablet / Mobile
+- พื้นที่ภาพโครงการใช้ Placeholder จนกว่าจะได้รับภาพจริงจากจังหวัด
+- คง Interactive Map ในหน้า overview ไว้ แต่ไม่ให้แย่งลำดับความสำคัญจากหน้าแรก

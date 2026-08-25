@@ -62,3 +62,8 @@
 
 @media(max-width:1000px){.interactive-map-grid{grid-template-columns:1fr}.svg-map-wrap{min-height:420px}.district-detail-card{min-height:auto}}
 @media(max-width:680px){.interactive-map-card{padding:14px}.svg-map-wrap{min-height:340px}.district-svg .map-region text{font-size:14px}.district-metrics{grid-template-columns:1fr 1fr}.district-detail-card{padding:20px}.identity-band{padding:22px;border-radius:22px}.identity-band h2{font-size:24px}}
+
+.brand-mark img{width:100%;height:100%;object-fit:contain;display:block}
+@media(max-width:640px){
+  .brand-mark{width:46px;height:46px}
+}

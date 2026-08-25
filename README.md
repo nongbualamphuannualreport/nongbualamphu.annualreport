@@ -26,3 +26,7 @@
 Framework Preset: Other
 Build Command: เว้นว่าง
 Output Directory: ./
+
+
+## Logo
+ใช้ตราจังหวัดหนองบัวลำภูที่ `assets/images/logo/nongbualamphu-logo.png`

@@ -34,3 +34,8 @@ Output Directory: ./
 - ปรับ Interactive Map ให้เป็นรูปทรงจังหวัดตามภาพอ้างอิงที่ผู้ว่าจ้างจัดส่ง
 - แยก 6 อำเภอ และคง Hover / Click / Tap Interaction
 - ไม่มีการสร้างตัวเลขรายอำเภอที่ยังไม่ได้รับข้อมูลจริง
+
+
+## V1.3 Favicon
+- ใช้ตราจังหวัดหนองบัวลำภูเป็น Favicon
+- มี `favicon.ico`, PNG 32/48px และ Apple Touch Icon 180px

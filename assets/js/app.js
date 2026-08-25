@@ -18,7 +18,7 @@
       <header class="site-header">
         <div class="container header-inner">
           <a class="brand" href="index.html" aria-label="Annual Report จังหวัดหนองบัวลำภู">
-            <span class="brand-seal" aria-hidden="true"><span>นภ</span></span>
+            <span class="brand-seal"><img src="assets/images/logo/nongbualamphu-logo.png" alt="ตราจังหวัดหนองบัวลำภู"></span>
             <span class="brand-copy"><strong>Annual Report</strong><small>จังหวัดหนองบัวลำภู</small></span>
           </a>
           <button class="nav-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
@@ -36,7 +36,7 @@
       <footer class="site-footer">
         <div class="container footer-grid">
           <div>
-            <div class="footer-brand"><span class="brand-seal mini"><span>นภ</span></span><div><b>จังหวัดหนองบัวลำภู</b><small>Digital Annual Report V1</small></div></div>
+            <div class="footer-brand"><span class="brand-seal mini"><img src="assets/images/logo/nongbualamphu-logo.png" alt="ตราจังหวัดหนองบัวลำภู"></span><div><b>จังหวัดหนองบัวลำภู</b><small>Digital Annual Report V1</small></div></div>
             <p class="muted">ตัวอย่างเว็บไซต์เพื่อสาธิตแนวทางการนำเสนอรายงานผลการดำเนินงานจังหวัดในรูปแบบดิจิทัล</p>
           </div>
           <div><b>รายงาน</b><a href="overview.html">ภาพรวมจังหวัด</a><a href="results.html">ผลการดำเนินงานและงบประมาณ</a><a href="projects.html">โครงการสำคัญ</a></div>

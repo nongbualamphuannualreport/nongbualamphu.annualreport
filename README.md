@@ -49,3 +49,11 @@ Output Directory: ./
 - ปรับ Responsive สำหรับ PC / Tablet / Mobile
 - พื้นที่ภาพโครงการใช้ Placeholder จนกว่าจะได้รับภาพจริงจากจังหวัด
 - คง Interactive Map ในหน้า overview ไว้ แต่ไม่ให้แย่งลำดับความสำคัญจากหน้าแรก
+
+
+## V1.5 — Modern Refresh
+- ปรับโทนดีไซน์โดยรวมให้สดขึ้นและทันสมัยขึ้น
+- Hero / card / section / button มี contrast และมิติมากขึ้น
+- เพิ่ม modern highlight band บนหน้าแรก
+- ใช้ gradient, glassmorphism เบา ๆ และ premium shadows
+- คง Theme หนองบัวลำภูไว้ ไม่หลุดความเป็นเว็บไซต์ราชการ

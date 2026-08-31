@@ -52,3 +52,13 @@ Annual Report เป็นปีงบประมาณ 2569 แต่ข้อ
 - แก้หัวข้อ Section, หัวข้อ Card, Label, คำอธิบาย และ Status Chip
 - แก้การ์ด 5 ประเด็นการพัฒนา และองค์ประกอบบนหน้า Strategy ให้ Contrast สูงขึ้น
 - เป็น CSS-only patch ใช้อัปทับ V2.4 ได้ทันที
+
+
+## V2.4.2 — Day High Contrast Accessibility Fix
+- ปรับ Day Mode ใหม่โดยให้ “การอ่านชัด” มาก่อนโทนสี
+- ลดพื้นหลังชมพูใน Card เหลือขาว/ครีมอ่อน
+- ตัวอักษรหลักใช้สีเข้มมากขึ้น
+- ตัวอักษรรองและคำอธิบายเข้มขึ้น
+- สีชมพูใช้เป็น Accent ไม่ใช้กับข้อความยาว
+- บังคับ override ด้วย !important เฉพาะ Day Mode เพื่อป้องกันสี Night Mode หลุดมาทับ
+- ปรับ Header, Hero, KPI, Strategy, Vision Explorer, Map, Results, Downloads และ Footer

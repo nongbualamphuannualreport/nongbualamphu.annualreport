@@ -2005,3 +2005,350 @@ html[data-theme="day"] .project-feature,
 html[data-theme="day"] .download-feature{
   border-color:rgba(190,74,111,.16);
 }
+
+
+/* =========================================================
+   V2.4.2 — DAY MODE HIGH CONTRAST / ACCESSIBILITY FIX
+   Priority: readability first. This block comes LAST and
+   intentionally uses !important to defeat legacy Night colors.
+   ========================================================= */
+
+html[data-theme="day"]{
+  --day-bg:#fffafc;
+  --day-surface:#ffffff;
+  --day-surface-soft:#fff7f9;
+  --day-text:#25171d;
+  --day-text-2:#4f3942;
+  --day-text-3:#67515a;
+  --day-accent:#a91f50;
+  --day-accent-strong:#8d153f;
+  --day-border:rgba(93,47,62,.18);
+  --day-shadow:0 16px 42px rgba(77,38,52,.10);
+}
+
+html[data-theme="day"] body{
+  background:
+    radial-gradient(circle at 10% 0%,rgba(236,121,160,.09),transparent 20%),
+    radial-gradient(circle at 92% 10%,rgba(246,193,211,.12),transparent 22%),
+    linear-gradient(180deg,#fffafc 0%,#ffffff 48%,#fff8fb 100%) !important;
+  color:var(--day-text) !important;
+}
+
+/* ---------- UNIVERSAL TEXT HIERARCHY ---------- */
+html[data-theme="day"] h1,
+html[data-theme="day"] h2,
+html[data-theme="day"] h3,
+html[data-theme="day"] h4,
+html[data-theme="day"] h5,
+html[data-theme="day"] h6,
+html[data-theme="day"] strong,
+html[data-theme="day"] .brand b,
+html[data-theme="day"] .panel-head h2,
+html[data-theme="day"] .panel-head h3,
+html[data-theme="day"] .district-insight h2,
+html[data-theme="day"] .project-card h3,
+html[data-theme="day"] .project-feature h2,
+html[data-theme="day"] .download-feature h2,
+html[data-theme="day"] .download-small h3,
+html[data-theme="day"] .vision-detail-head h3,
+html[data-theme="day"] .vision-key-grid b,
+html[data-theme="day"] .vision-flow b,
+html[data-theme="day"] .three-concept-grid h4,
+html[data-theme="day"] .result-area-list h3,
+html[data-theme="day"] .challenge-grid h3,
+html[data-theme="day"] .mission-list span{
+  color:var(--day-text) !important;
+}
+
+html[data-theme="day"] p,
+html[data-theme="day"] .section-heading>p,
+html[data-theme="day"] .panel-head p,
+html[data-theme="day"] .hero-lead,
+html[data-theme="day"] .issue-block p,
+html[data-theme="day"] .project-card p,
+html[data-theme="day"] .project-feature p,
+html[data-theme="day"] .vision-detail-head p,
+html[data-theme="day"] .vision-key-grid span,
+html[data-theme="day"] .vision-flow span,
+html[data-theme="day"] .three-concept-grid p,
+html[data-theme="day"] .three-concept-grid li,
+html[data-theme="day"] .trend-card>p,
+html[data-theme="day"] .download-feature p,
+html[data-theme="day"] .download-small p,
+html[data-theme="day"] .result-area-list p,
+html[data-theme="day"] .challenge-grid p,
+html[data-theme="day"] .district-insight>p,
+html[data-theme="day"] .district-future span,
+html[data-theme="day"] .data-note span,
+html[data-theme="day"] .fy69-main p{
+  color:var(--day-text-2) !important;
+}
+
+/* Small text must remain readable, not faded */
+html[data-theme="day"] small,
+html[data-theme="day"] .brand small,
+html[data-theme="day"] .kpi-dock small,
+html[data-theme="day"] .kpi-dock em,
+html[data-theme="day"] .subhero-stats small,
+html[data-theme="day"] .subhero-stats span,
+html[data-theme="day"] .district-data small,
+html[data-theme="day"] .district-data span,
+html[data-theme="day"] .impact-mini-grid small,
+html[data-theme="day"] .project-numbers span,
+html[data-theme="day"] .project-card>div small,
+html[data-theme="day"] .pending-grid small,
+html[data-theme="day"] .indicator-grid small,
+html[data-theme="day"] .doc-cards span,
+html[data-theme="day"] .footer-brand span,
+html[data-theme="day"] .footer-horizon small,
+html[data-theme="day"] .footer-bottom{
+  color:var(--day-text-3) !important;
+  opacity:1 !important;
+}
+
+/* Accent labels */
+html[data-theme="day"] .eyebrow,
+html[data-theme="day"] .section-heading small,
+html[data-theme="day"] .panel-kicker,
+html[data-theme="day"] .issue-block span,
+html[data-theme="day"] .project-feature small,
+html[data-theme="day"] .project-card>span,
+html[data-theme="day"] .vision-kicker,
+html[data-theme="day"] .vision-tab b,
+html[data-theme="day"] .text-link,
+html[data-theme="day"] .inline-link{
+  color:var(--day-accent) !important;
+  opacity:1 !important;
+  font-weight:800 !important;
+}
+
+/* Heading accent */
+html[data-theme="day"] .hero-copy h1 em,
+html[data-theme="day"] .subhero h1 em,
+html[data-theme="day"] .section-heading h2 em,
+html[data-theme="day"] .vision-detail-head h3 em{
+  background:none !important;
+  -webkit-background-clip:initial !important;
+  background-clip:initial !important;
+  color:var(--day-accent) !important;
+  -webkit-text-fill-color:var(--day-accent) !important;
+}
+
+/* Decorative numbers: still decorative, but visible */
+html[data-theme="day"] .section-no,
+html[data-theme="day"] .issue-block i,
+html[data-theme="day"] .pillar i,
+html[data-theme="day"] .project-area-grid i,
+html[data-theme="day"] .result-area-list i{
+  color:rgba(145,32,72,.52) !important;
+  opacity:1 !important;
+}
+
+/* ---------- SURFACES: LESS PINK, MORE WHITE ---------- */
+html[data-theme="day"] .glass-panel,
+html[data-theme="day"] .pillar,
+html[data-theme="day"] .issue-block,
+html[data-theme="day"] .project-card,
+html[data-theme="day"] .project-tile,
+html[data-theme="day"] .project-feature,
+html[data-theme="day"] .general-fact-grid article,
+html[data-theme="day"] .indicator-grid article,
+html[data-theme="day"] .pending-grid article,
+html[data-theme="day"] .result-area-list article,
+html[data-theme="day"] .project-area-grid article,
+html[data-theme="day"] .fy69-summary-grid>article,
+html[data-theme="day"] .three-concept-grid article,
+html[data-theme="day"] .vision-key-grid article,
+html[data-theme="day"] .vision-flow>div,
+html[data-theme="day"] .trend-card,
+html[data-theme="day"] .download-small,
+html[data-theme="day"] .impact-mini-grid div,
+html[data-theme="day"] .district-data div{
+  background:var(--day-surface) !important;
+  border-color:var(--day-border) !important;
+  box-shadow:var(--day-shadow) !important;
+}
+
+/* Give key strategy cards a stronger outline */
+html[data-theme="day"] .strategy-pillars .pillar,
+html[data-theme="day"] .issue-architecture .issue-block{
+  border:1px solid rgba(125,42,69,.22) !important;
+}
+html[data-theme="day"] .strategy-pillars .pillar:hover,
+html[data-theme="day"] .issue-architecture .issue-block:hover{
+  border-color:rgba(140,25,66,.40) !important;
+}
+
+/* ---------- HEADER / NAV ---------- */
+html[data-theme="day"] .site-header.scrolled{
+  background:rgba(255,255,255,.95) !important;
+  border-bottom-color:rgba(95,47,63,.15) !important;
+}
+html[data-theme="day"] .desktop-nav a{
+  color:#4c3740 !important;
+}
+html[data-theme="day"] .desktop-nav a:hover,
+html[data-theme="day"] .desktop-nav a.active{
+  color:var(--day-accent-strong) !important;
+}
+html[data-theme="day"] .theme-toggle,
+html[data-theme="day"] .reader-controls button,
+html[data-theme="day"] .menu-toggle{
+  color:#3f2b33 !important;
+  background:#fff !important;
+  border-color:rgba(99,48,65,.18) !important;
+}
+
+/* ---------- HERO ---------- */
+html[data-theme="day"] .hero-shade{
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,252,253,.91) 40%,rgba(255,251,253,.62) 69%,rgba(255,253,254,.76) 100%),
+    linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.08) 50%,#fffafc 98%) !important;
+}
+html[data-theme="day"] .hero-copy h1{
+  color:#24161c !important;
+  text-shadow:none !important;
+}
+html[data-theme="day"] .vision-chip{
+  background:rgba(255,255,255,.88) !important;
+  border-left-color:var(--day-accent) !important;
+}
+html[data-theme="day"] .vision-chip small{
+  color:#60444f !important;
+}
+html[data-theme="day"] .vision-chip b{
+  color:#291920 !important;
+}
+html[data-theme="day"] .btn.glass{
+  color:#3b2630 !important;
+  background:#fff !important;
+  border-color:rgba(96,45,63,.18) !important;
+}
+
+/* ---------- KPI / METRICS ---------- */
+html[data-theme="day"] .kpi-dock{
+  background:rgba(255,255,255,.97) !important;
+  border-color:rgba(99,48,65,.18) !important;
+}
+html[data-theme="day"] .kpi-dock b,
+html[data-theme="day"] .fy69-year,
+html[data-theme="day"] .fy69-summary-grid>article:not(.fy69-main) b,
+html[data-theme="day"] .general-fact-grid b,
+html[data-theme="day"] .impact-mini-grid b,
+html[data-theme="day"] .indicator-grid b,
+html[data-theme="day"] .project-numbers b,
+html[data-theme="day"] .project-card>div b,
+html[data-theme="day"] .budget-orb b{
+  color:var(--day-accent-strong) !important;
+}
+
+/* ---------- STRATEGY / VISION EXPLORER ---------- */
+html[data-theme="day"] .vision-tab{
+  background:#fff !important;
+  color:var(--day-text) !important;
+  border-color:rgba(104,49,66,.18) !important;
+}
+html[data-theme="day"] .vision-tab span{
+  color:#291920 !important;
+}
+html[data-theme="day"] .vision-tab small{
+  color:#604b54 !important;
+}
+html[data-theme="day"] .vision-tab.active{
+  background:#fff5f8 !important;
+  border-color:rgba(151,31,72,.45) !important;
+  box-shadow:0 14px 34px rgba(94,42,59,.10),inset 4px 0 0 var(--day-accent) !important;
+}
+html[data-theme="day"] .vision-big-no,
+html[data-theme="day"] .concept-icon{
+  color:var(--day-accent-strong) !important;
+  border-color:rgba(151,31,72,.22) !important;
+  background:#fff3f7 !important;
+}
+html[data-theme="day"] .three-concept-grid li:before{
+  background:var(--day-accent) !important;
+  box-shadow:none !important;
+}
+
+/* ---------- MAP ---------- */
+html[data-theme="day"] .map-tooltip{
+  background:#fff !important;
+  border-color:rgba(94,48,63,.22) !important;
+}
+html[data-theme="day"] .map-tooltip small,
+html[data-theme="day"] .map-tooltip span{
+  color:#5d4650 !important;
+}
+html[data-theme="day"] .map-tooltip>b,
+html[data-theme="day"] .map-tooltip strong{
+  color:#24161c !important;
+}
+html[data-theme="day"] .district-svg .map-region text{
+  fill:#20373d !important;
+  stroke:#ffffff !important;
+  stroke-width:5px !important;
+}
+
+/* ---------- RESULTS / STATUS ---------- */
+html[data-theme="day"] .status-chip{
+  color:#7d173a !important;
+  background:#fff0f5 !important;
+  border-color:rgba(137,28,65,.26) !important;
+}
+html[data-theme="day"] .pending-grid article{
+  background:#fffdf8 !important;
+  border-color:rgba(156,109,28,.26) !important;
+}
+html[data-theme="day"] .pending-grid b{
+  color:#79540f !important;
+}
+html[data-theme="day"] .bar-stack i,
+html[data-theme="day"] .budget-lines i{
+  background:#eee6e9 !important;
+}
+
+/* ---------- DOWNLOADS ---------- */
+html[data-theme="day"] .doc-cards div,
+html[data-theme="day"] .download-feature button{
+  background:#fff !important;
+  border-color:rgba(96,46,63,.17) !important;
+}
+html[data-theme="day"] .doc-cards b{
+  color:#2a1920 !important;
+}
+html[data-theme="day"] .doc-cards span{
+  color:#5e4851 !important;
+}
+
+/* ---------- FOOTER / MOBILE ---------- */
+html[data-theme="day"] .site-footer{
+  background:#fff !important;
+  color:var(--day-text) !important;
+  border-top-color:rgba(95,48,63,.16) !important;
+}
+html[data-theme="day"] .footer-links a{
+  color:#4f3943 !important;
+  background:#fff !important;
+  border-color:rgba(95,48,63,.14) !important;
+}
+html[data-theme="day"] .mobile-dock{
+  background:rgba(255,255,255,.97) !important;
+  border-color:rgba(95,48,63,.18) !important;
+}
+html[data-theme="day"] .mobile-dock a{
+  color:#5d4650 !important;
+}
+html[data-theme="day"] .mobile-dock a.active{
+  color:var(--day-accent-strong) !important;
+}
+
+/* ---------- MOBILE DAY OVERRIDES ---------- */
+@media(max-width:780px){
+  html[data-theme="day"] .hero-shade{
+    background:
+      linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(255,253,254,.88) 42%,rgba(255,251,253,.87) 72%,#fffafc 100%) !important;
+  }
+  html[data-theme="day"] .vision-tab{
+    background:#fff !important;
+  }
+}

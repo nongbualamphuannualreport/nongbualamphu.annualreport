@@ -99,45 +99,38 @@
   });
 
 
-  // Interactive district map: hover on PC, tap/click on mobile.
+  // Interactive district map: real district demographic/area data from the provincial plan.
   const mapRoot = document.querySelector('[data-interactive-map]');
   const districtDetail = document.querySelector('[data-district-detail]');
   if (mapRoot && districtDetail) {
-    const districts = {
-      suwannakhuha: { name: 'อำเภอสุวรรณคูหา' },
-      naklang: { name: 'อำเภอนากลาง' },
-      nawang: { name: 'อำเภอนาวัง' },
-      mueang: { name: 'อำเภอเมืองหนองบัวลำภู' },
-      nonsang: { name: 'อำเภอโนนสัง' },
-      sibunrueang: { name: 'อำเภอศรีบุญเรือง' }
-    };
+    const districts = (window.NBL_DATA && window.NBL_DATA.districts) || {};
+    const nf = new Intl.NumberFormat('th-TH');
     const renderDistrict = (id) => {
       const d = districts[id];
       if (!d) return;
       mapRoot.querySelectorAll('[data-district]').forEach(el => el.classList.toggle('active', el.dataset.district === id));
       districtDetail.innerHTML = `
-        <span class="tag">ข้อมูลระดับอำเภอ</span>
+        <div class="district-detail-head"><span class="v16-kicker">DISTRICT PROFILE</span><span class="district-dot"></span></div>
         <h3>${d.name}</h3>
-        <p class="muted district-intro">ส่วนนี้เตรียมไว้เชื่อมข้อมูลจริงของจังหวัด เมื่อได้รับข้อมูลรายอำเภอ ระบบจะแสดงเฉพาะข้อมูลที่มี ไม่สร้างตัวเลขขึ้นเอง</p>
-        <div class="district-metrics">
-          <div><small>ประชากร</small><b class="pending">รอข้อมูล</b></div>
-          <div><small>จำนวนโครงการ</small><b class="pending">รอข้อมูล</b></div>
-          <div><small>วงเงินโครงการในพื้นที่</small><b class="pending">รอข้อมูล</b></div>
-          <div><small>การเบิกจ่าย</small><b class="pending">รอข้อมูล</b></div>
+        <p class="muted district-intro">ข้อมูลการปกครองและประชากรจากแผนพัฒนาจังหวัด ใช้ Hover/Click บน PC หรือแตะบนมือถือเพื่อสำรวจแต่ละอำเภอ</p>
+        <div class="district-metrics real-data">
+          <div><small>ประชากร</small><b>${nf.format(d.population)}</b><span>คน</span></div>
+          <div><small>พื้นที่</small><b>${nf.format(d.area)}</b><span>ตร.กม.</span></div>
+          <div><small>ตำบล</small><b>${nf.format(d.subdistricts)}</b><span>แห่ง</span></div>
+          <div><small>หมู่บ้าน</small><b>${nf.format(d.villages)}</b><span>แห่ง</span></div>
+          <div><small>ครัวเรือน</small><b>${nf.format(d.households)}</b><span>หลังคาเรือน</span></div>
+          <div><small>ชุมชน</small><b>${nf.format(d.communities)}</b><span>ชุมชน</span></div>
         </div>
-        <div class="district-projects"><b>โครงการในพื้นที่</b><p class="pending">รอข้อมูลโครงการที่ระบุพื้นที่ดำเนินงาน</p></div>
-        <div class="map-help">PC: วางเมาส์เพื่อดู • คลิกเพื่อตรึงข้อมูล &nbsp; | &nbsp; Mobile: แตะพื้นที่อำเภอ</div>`;
+        <div class="district-projects"><b>โครงการในพื้นที่</b><p>รอเชื่อมข้อมูลโครงการที่ระบุพื้นที่ดำเนินงาน เมื่อจังหวัดส่งชุดข้อมูลรายโครงการเพิ่มเติม</p></div>
+        <div class="map-help">PC: Hover เพื่อดู • Click เพื่อตรึง &nbsp; | &nbsp; Mobile: แตะพื้นที่อำเภอ</div>`;
     };
     mapRoot.querySelectorAll('[data-district]').forEach(el => {
-      el.setAttribute('tabindex','0');
-      el.setAttribute('role','button');
+      el.setAttribute('tabindex','0'); el.setAttribute('role','button');
       const id = el.dataset.district;
       el.addEventListener('mouseenter', () => renderDistrict(id));
       el.addEventListener('focus', () => renderDistrict(id));
       el.addEventListener('click', () => renderDistrict(id));
-      el.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); renderDistrict(id); }
-      });
+      el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); renderDistrict(id); } });
     });
     renderDistrict('mueang');
   }

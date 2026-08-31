@@ -25,3 +25,15 @@ Annual Report เป็นปีงบประมาณ 2569 แต่ข้อ
 - น่าอยู่: แสดง 3 ส. = สะอาด, สะดวก, สงบสุขและปลอดภัย
 - น่าเที่ยว: แสดง 3 ธ. = ธรรมะ, ธรรมชาติ, วัฒนธรรม
 - รองรับ Mouse / Touch / Keyboard และตัวอักษร A / A+ / A++
+
+
+## V2.3 — Mobile Responsive Fix
+- แก้ CSS cascade ที่ทำให้ค่าขนาด Desktop ทับ Mobile หลังเพิ่ม Senior Friendly typography
+- หน้าแรกบนมือถือเปลี่ยน KPI จาก absolute overlay เป็น normal flow
+- Map tooltip ย้ายจากการซ้อนบนแผนที่มาอยู่ใต้แผนที่
+- Header / Mobile menu / Bottom dock จัดขนาดใหม่
+- Subhero statistics ปรับ 2 คอลัมน์ และ 1 คอลัมน์บนจอแคบ
+- Vision Explorer ปรับเป็น 2×2 และ 1 คอลัมน์บนมือถือแคบ
+- Results activity flow เปลี่ยนเป็นแนวตั้งบนมือถือ
+- Overview / Projects / Downloads ปรับ card layout ใหม่สำหรับมือถือ
+- รองรับ 320px, 360px, 390px, 430px และโทรศัพท์แนวนอน

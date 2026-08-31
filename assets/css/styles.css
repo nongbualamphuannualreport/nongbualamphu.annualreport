@@ -2647,3 +2647,61 @@ html[data-theme="day"] .detail-back-button{color:#8d153f;background:#fff;border-
   .directory-project-card{grid-template-columns:1fr}
   .project-detail-facts{grid-template-columns:1fr}
 }
+
+
+/* =========================================================
+   V2.5.1 — DESKTOP KPI POSITION FIX
+   .reveal was overriding translateX(-50%) on .kpi-dock.
+   ========================================================= */
+
+/* Desktop / tablet landscape: keep KPI bar centered even during reveal animation. */
+@media (min-width:781px){
+  .kpi-dock.reveal{
+    transform:translate(-50%,22px) !important;
+  }
+  .kpi-dock.reveal.visible{
+    transform:translateX(-50%) !important;
+  }
+
+  /* Prevent long labels / A++ font mode from expanding grid columns. */
+  .kpi-dock{
+    width:min(calc(100% - 48px),var(--max)) !important;
+    max-width:var(--max);
+  }
+  .kpi-dock article{
+    min-width:0 !important;
+    overflow:hidden;
+  }
+  .kpi-dock small,
+  .kpi-dock b,
+  .kpi-dock em{
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
+}
+
+/* Mid-size desktop / laptop screens: make the four KPI cells slightly more compact. */
+@media (min-width:781px) and (max-width:1280px){
+  .kpi-dock article{
+    padding:18px 16px !important;
+  }
+  .kpi-dock small{
+    margin-left:30px !important;
+    font-size:calc(12px * var(--reader-scale)) !important;
+    line-height:1.4;
+  }
+  .kpi-dock b{
+    font-size:calc(28px * var(--reader-scale)) !important;
+  }
+  .kpi-dock em{
+    font-size:calc(11px * var(--reader-scale)) !important;
+  }
+}
+
+/* Preserve the V2.3 mobile behavior: KPI participates in normal flow. */
+@media (max-width:780px){
+  .kpi-dock.reveal,
+  .kpi-dock.reveal.visible{
+    transform:none !important;
+  }
+}

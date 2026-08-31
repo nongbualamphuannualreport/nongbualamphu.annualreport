@@ -1,8 +1,8 @@
 window.NBL_DATA = {
   "meta": {
-    "title": "Annual Report จังหวัดหนองบัวลำภู",
+    "title": "Digital Annual Report จังหวัดหนองบัวลำภู",
     "year": "2569",
-    "demo": false,
+    "plan": "2571–2575",
     "vision": "เกษตรเพิ่มมูลค่า เมืองผ้า น่าอยู่ น่าเที่ยว"
   },
   "province": {
@@ -15,9 +15,7 @@ window.NBL_DATA = {
     "male": 249382,
     "female": 252706,
     "households": 163997,
-    "localAuthorities": 68,
     "gpp": 34700,
-    "gppIncrease": 2550,
     "realGppGrowth": 5.77,
     "incomePerCapita": 74390,
     "incomeGrowth": 8.41,
@@ -26,8 +24,7 @@ window.NBL_DATA = {
     "tourismRevenue": 493,
     "tourismRevenueGrowth": 6.69,
     "hotelGuests": 122542,
-    "occupancyRate": 46.26,
-    "foreignVisitors": 3711
+    "occupancyRate": 46.26
   },
   "districts": {
     "mueang": {
@@ -101,32 +98,5 @@ window.NBL_DATA = {
     "gpp": 5,
     "income": 5,
     "tourism": 10
-  },
-  "highlights": [
-    {
-      "metric": "20 โรงเรียน",
-      "detail": "โครงการส่งเสริมการเลี้ยงไก่ไข่ในโรงเรียน",
-      "sub": "ครู นักเรียน และผู้ปกครองรวม 1,200 ราย"
-    },
-    {
-      "metric": "80 กลุ่ม",
-      "detail": "แพรพรรณลุ่มภูสู่สากล 2026",
-      "sub": "ยอดจำหน่ายมากกว่า 2 ล้านบาท"
-    },
-    {
-      "metric": ">5,000 คน",
-      "detail": "งานวันสถาปนาจังหวัดครบรอบ 32 ปี",
-      "sub": "รายได้จำหน่าย >1 ล้านบาท · เงินหมุนเวียนประมาณ 3 ล้านบาท"
-    },
-    {
-      "metric": ">11 ล้านบาท",
-      "detail": "ยอดจำหน่าย OTOP Midyear 2026",
-      "sub": "เชื่อมสินค้า OTOP กับการท่องเที่ยวชุมชน"
-    },
-    {
-      "metric": "6 อำเภอ · 12 ครั้ง",
-      "detail": "เครือข่ายพิทักษ์และฟื้นฟูทรัพยากรป่าไม้",
-      "sub": "อบรมผู้นำชุมชน เครือข่ายป่าชุมชน และอาสาสมัคร"
-    }
-  ]
+  }
 };

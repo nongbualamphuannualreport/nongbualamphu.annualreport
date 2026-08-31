@@ -10,6 +10,17 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo/apple-touch-icon.png">
+<script>
+(function(){
+  try{
+    var saved=localStorage.getItem('nblThemeChoice');
+    var h=new Date().getHours();
+    var theme=(saved==='day'||saved==='night')?saved:((h>=6&&h<18)?'day':'night');
+    document.documentElement.dataset.theme=theme;
+    document.documentElement.style.colorScheme=theme==='day'?'light':'dark';
+  }catch(e){document.documentElement.dataset.theme='night';}
+})();
+</script>
 <link rel="stylesheet" href="assets/css/styles.css">
 <title>ผลการดำเนินงานและงบประมาณ จังหวัดหนองบัวลำภู พ.ศ. 2569</title>
 </head>

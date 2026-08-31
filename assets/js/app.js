@@ -20,6 +20,7 @@
           <span><b>จังหวัดหนองบัวลำภู</b><small>ANNUAL REPORT 2569</small></span>
         </a>
         <nav class="desktop-nav">${nav.map(([k,l,h])=>`<a class="${k===page?'active':''}" href="${h}">${l}</a>`).join('')}</nav>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="สลับโหมดกลางวันและกลางคืน"><i data-theme-icon>☾</i><span data-theme-label>กลางคืน</span></button>
         <div class="reader-controls" aria-label="ปรับขนาดตัวอักษร">
           <span>ขนาดตัวอักษร</span>
           <button data-reader="normal" aria-label="ขนาดปกติ">A</button>
@@ -29,6 +30,11 @@
         <button class="menu-toggle" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span></button>
       </div>
       <div class="mobile-sheet">
+        <div class="mobile-theme-row">
+          <b>โหมดการแสดงผล</b>
+          <button type="button" data-theme-set="day"><i>☀</i><span>กลางวัน</span></button>
+          <button type="button" data-theme-set="night"><i>☾</i><span>กลางคืน</span></button>
+        </div>
         <div class="mobile-reader">
           <b>ปรับขนาดตัวอักษร</b>
           <button data-reader="normal">A</button><button data-reader="large">A+</button><button data-reader="xlarge">A++</button>
@@ -53,6 +59,46 @@
     const icons=['⌂','◫','◇','▦','⇩'];
     dock.innerHTML=`<nav class="mobile-dock">${dockItems.map(([k,l,h],i)=>`<a class="${k===page?'active':''}" href="${h}"><i>${icons[i]}</i><span>${l.replace('จังหวัด','').replace('รายงาน','')}</span></a>`).join('')}</nav>`;
   }
+
+  // Day / Night theme.
+  // First visit follows local time: 06:00-17:59 = Day, otherwise Night.
+  // Manual choice is remembered in localStorage.
+  const validThemes=['day','night'];
+  const savedTheme=localStorage.getItem('nblThemeChoice');
+  const localHour=new Date().getHours();
+  const autoTheme=(localHour>=6 && localHour<18)?'day':'night';
+  const initialTheme=validThemes.includes(savedTheme)?savedTheme:autoTheme;
+  const applyTheme=(theme,persist=false)=>{
+    if(!validThemes.includes(theme)) theme='night';
+    document.documentElement.dataset.theme=theme;
+    document.documentElement.style.colorScheme=theme==='day'?'light':'dark';
+    const meta=document.querySelector('meta[name="theme-color"]');
+    if(meta) meta.setAttribute('content',theme==='day'?'#fff4f8':'#041522');
+    document.querySelectorAll('[data-theme-icon]').forEach(el=>el.textContent=theme==='day'?'☀':'☾');
+    document.querySelectorAll('[data-theme-label]').forEach(el=>el.textContent=theme==='day'?'กลางวัน':'กลางคืน');
+    document.querySelectorAll('[data-theme-set]').forEach(btn=>{
+      const active=btn.dataset.themeSet===theme;
+      btn.classList.toggle('active',active);
+      btn.setAttribute('aria-pressed',String(active));
+    });
+    document.querySelectorAll('[data-theme-toggle]').forEach(btn=>{
+      btn.setAttribute('title',theme==='day'?'เปลี่ยนเป็นโหมดกลางคืน':'เปลี่ยนเป็นโหมดกลางวัน');
+    });
+    if(persist) localStorage.setItem('nblThemeChoice',theme);
+  };
+  applyTheme(initialTheme,false);
+  document.addEventListener('click',e=>{
+    const toggleBtn=e.target.closest('[data-theme-toggle]');
+    if(toggleBtn){
+      const next=document.documentElement.dataset.theme==='day'?'night':'day';
+      applyTheme(next,true);
+      return;
+    }
+    const setBtn=e.target.closest('[data-theme-set]');
+    if(setBtn){
+      applyTheme(setBtn.dataset.themeSet,true);
+    }
+  });
 
   // Senior-friendly text size control
   const validSizes=['normal','large','xlarge'];

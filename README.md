@@ -37,3 +37,11 @@ Annual Report เป็นปีงบประมาณ 2569 แต่ข้อ
 - Results activity flow เปลี่ยนเป็นแนวตั้งบนมือถือ
 - Overview / Projects / Downloads ปรับ card layout ใหม่สำหรับมือถือ
 - รองรับ 320px, 360px, 390px, 430px และโทรศัพท์แนวนอน
+
+
+## V2.4 — Day / Night Theme
+- เพิ่ม 2 Theme: Day Mode สีชมพู/ขาว และ Night Mode Navy/Teal
+- ครั้งแรกเลือกอัตโนมัติตามเวลาของเครื่อง: 06:00–17:59 = Day, เวลาอื่น = Night
+- ผู้ใช้งานสามารถสลับ Theme เองได้ และระบบจำค่าที่เลือกด้วย localStorage
+- Day Mode ใช้ตัวหนังสือเข้มและ Contrast สูง รองรับผู้สูงอายุ
+- ระบบ A / A+ / A++ และ Mobile Responsive Fix ยังคงทำงานครบ

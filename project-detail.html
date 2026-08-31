@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#041522">
+<meta name="description" content="รายละเอียดโครงการสำคัญ จังหวัดหนองบัวลำภู ประจำปีงบประมาณ พ.ศ. 2569">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo/apple-touch-icon.png">
+<script>
+(function(){
+  try{
+    var saved=localStorage.getItem('nblThemeChoice');
+    var h=new Date().getHours();
+    var theme=(saved==='day'||saved==='night')?saved:((h>=6&&h<18)?'day':'night');
+    document.documentElement.dataset.theme=theme;
+    document.documentElement.style.colorScheme=theme==='day'?'light':'dark';
+  }catch(e){document.documentElement.dataset.theme='night';}
+})();
+</script>
+<link rel="stylesheet" href="assets/css/styles.css">
+<title>รายละเอียดโครงการ | Annual Report 2569</title>
+</head>
+<body data-page="projects" class="innovation-page accessible-2569 project-detail-page">
+<div class="ambient-grid" aria-hidden="true"></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+<div data-site-header></div>
+<main>
+  <section class="project-detail-shell">
+    <div class="container">
+      <nav class="detail-breadcrumb" aria-label="เส้นทาง">
+        <a href="index.html">หน้าหลัก</a><span>›</span>
+        <a href="projects.html">โครงการสำคัญ</a><span>›</span>
+        <b data-detail-code>รายละเอียดโครงการ</b>
+      </nav>
+
+      <div data-project-detail>
+        <div class="project-detail-loading glass-panel">กำลังโหลดรายละเอียดโครงการ...</div>
+      </div>
+    </div>
+  </section>
+</main>
+<div data-site-footer></div>
+<div data-mobile-dock></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/projects-data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

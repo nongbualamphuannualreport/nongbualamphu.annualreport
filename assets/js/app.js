@@ -217,4 +217,142 @@
     });
   });
 
+
+  // -----------------------------------------------------------
+  // Project Directory: search and development-issue filters.
+  // -----------------------------------------------------------
+  const projectSearchInput=document.querySelector('[data-project-search-input]');
+  if(projectSearchInput){
+    const filterButtons=[...document.querySelectorAll('[data-project-filter]')];
+    const cards=[...document.querySelectorAll('.directory-project-card')];
+    const sections=[...document.querySelectorAll('[data-project-section]')];
+    const resultCount=document.querySelector('[data-project-result-count]');
+    const empty=document.querySelector('[data-project-empty]');
+    let activeGroup='all';
+
+    const updateDirectory=()=>{
+      const q=projectSearchInput.value.trim().toLowerCase();
+      let visible=0;
+      cards.forEach(card=>{
+        const groupOk=activeGroup==='all'||card.dataset.projectGroup===activeGroup;
+        const searchOk=!q||(card.dataset.projectSearch||'').includes(q);
+        const show=groupOk&&searchOk;
+        card.hidden=!show;
+        if(show) visible++;
+      });
+      sections.forEach(section=>{
+        const any=[...section.querySelectorAll('.directory-project-card')].some(c=>!c.hidden);
+        section.hidden=!any;
+      });
+      if(resultCount) resultCount.textContent=`แสดง ${visible} โครงการ`;
+      if(empty) empty.hidden=visible!==0;
+    };
+
+    filterButtons.forEach(btn=>btn.addEventListener('click',()=>{
+      activeGroup=btn.dataset.projectFilter;
+      filterButtons.forEach(b=>b.classList.toggle('active',b===btn));
+      updateDirectory();
+    }));
+    projectSearchInput.addEventListener('input',updateDirectory);
+    updateDirectory();
+  }
+
+  // -----------------------------------------------------------
+  // Project Detail page. Content comes only from supplied source.
+  // -----------------------------------------------------------
+  const detailRoot=document.querySelector('[data-project-detail]');
+  if(detailRoot){
+    const projects=window.NBL_PROJECTS||[];
+    const groups=window.NBL_PROJECT_GROUPS||{};
+    const params=new URLSearchParams(location.search);
+    const id=params.get('id');
+    const index=projects.findIndex(p=>p.id===id);
+    const p=index>=0?projects[index]:null;
+
+    const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+    })[ch]);
+
+    if(!p){
+      detailRoot.innerHTML=`<div class="project-not-found glass-panel">
+        <span>ไม่พบข้อมูลโครงการ</span>
+        <h1>ลิงก์โครงการไม่ถูกต้อง หรือยังไม่มีรายละเอียดในชุดข้อมูล</h1>
+        <p>กลับไปหน้าโครงการสำคัญเพื่อเลือกโครงการที่มีข้อมูลในเอกสาร</p>
+        <a class="btn glow" href="projects.html">กลับไปหน้าโครงการสำคัญ →</a>
+      </div>`;
+    }else{
+      document.title=`${p.code} ${p.title} | Annual Report 2569`;
+      const codeEl=document.querySelector('[data-detail-code]');
+      if(codeEl) codeEl.textContent=p.code;
+
+      const activityHtml=(p.activities||[]).map((a,i)=>`
+        <li><i>${String(i+1).padStart(2,'0')}</i><span>${esc(a)}</span></li>`).join('');
+      const highlightHtml=(p.highlights||[]).length?`
+        <section class="detail-block detail-highlights">
+          <div class="detail-block-title"><small>ผลลัพธ์ / ตัวเลขที่เอกสารระบุ</small><h2>ข้อมูลสำคัญของโครงการ</h2></div>
+          <div class="detail-highlight-grid">${p.highlights.map(h=>`<div><b>${esc(h)}</b></div>`).join('')}</div>
+        </section>`:'';
+
+      const facts=[];
+      if(p.period) facts.push(`<div><small>ช่วงเวลา</small><b>${esc(p.period)}</b></div>`);
+      if(p.area) facts.push(`<div><small>พื้นที่ที่เอกสารระบุ</small><b>${esc(p.area)}</b></div>`);
+      facts.push(`<div><small>ประเด็นการพัฒนา</small><b>${esc(p.groupShort)}</b></div>`);
+      facts.push(`<div><small>กิจกรรม/รายละเอียดที่ปรากฏ</small><b>${(p.activities||[]).length} รายการ</b></div>`);
+
+      const prev=projects[index-1];
+      const next=projects[index+1];
+      detailRoot.innerHTML=`
+        <header class="project-detail-hero">
+          <div class="detail-code-badge ${esc(p.groupClass)}">${esc(p.code)}</div>
+          <div class="detail-hero-copy">
+            <span>${esc(p.groupTitle)}</span>
+            <h1>${esc(p.title)}</h1>
+            <p>${esc(p.summary)}</p>
+          </div>
+        </header>
+
+        <div class="project-detail-facts">${facts.join('')}</div>
+
+        <div class="project-detail-grid">
+          <div class="project-detail-main">
+            <section class="detail-block">
+              <div class="detail-block-title"><small>สาระสำคัญ</small><h2>วัตถุประสงค์และแนวทาง</h2></div>
+              <p class="detail-lead">${esc(p.objective)}</p>
+            </section>
+
+            <section class="detail-block">
+              <div class="detail-block-title"><small>กิจกรรมภายใต้โครงการ</small><h2>รายละเอียดที่ปรากฏในเอกสาร</h2></div>
+              <ol class="detail-activity-list">${activityHtml}</ol>
+            </section>
+
+            ${highlightHtml}
+
+            <section class="detail-block source-coverage">
+              <div class="detail-block-title"><small>ขอบเขตข้อมูล</small><h2>ข้อมูลที่ยังไม่ปรากฏในเอกสารชุดนี้</h2></div>
+              <p>เอกสารที่ได้รับเป็น “สรุปผลการดำเนินงานที่สำคัญ” จึงไม่ได้ระบุงบประมาณรายโครงการ หน่วยดำเนินงาน ระยะเวลาดำเนินงาน หรือร้อยละความก้าวหน้าครบทุกโครงการ หากจังหวัดส่งข้อมูลดังกล่าวเพิ่มเติม สามารถนำมาเติมในหน้านี้ได้โดยไม่ต้องเปลี่ยนโครงสร้างเว็บไซต์</p>
+            </section>
+          </div>
+
+          <aside class="project-detail-side">
+            <div class="detail-side-card glass-panel">
+              <small>รหัสโครงการในสรุป</small>
+              <b>${esc(p.code)}</b>
+              <span>${esc(p.groupShort)}</span>
+            </div>
+            <div class="detail-side-card glass-panel">
+              <small>แหล่งข้อมูล</small>
+              <h3>สรุปผลการดำเนินงานที่สำคัญในปีงบประมาณ พ.ศ. 2569</h3>
+              <p>หน้านี้ถอดและจัดโครงสร้างจากข้อมูลที่ปรากฏในเอกสารเท่านั้น</p>
+            </div>
+            <a class="detail-back-button" href="projects.html">← กลับไปดูทั้ง 18 โครงการ</a>
+          </aside>
+        </div>
+
+        <nav class="project-detail-nav">
+          ${prev?`<a href="project-detail.html?id=${esc(prev.id)}"><small>โครงการก่อนหน้า</small><b>← ${esc(prev.code)} ${esc(prev.title)}</b></a>`:'<span></span>'}
+          ${next?`<a class="next" href="project-detail.html?id=${esc(next.id)}"><small>โครงการถัดไป</small><b>${esc(next.code)} ${esc(next.title)} →</b></a>`:'<span></span>'}
+        </nav>`;
+    }
+  }
+
 })();

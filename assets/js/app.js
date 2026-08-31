@@ -133,4 +133,42 @@
   if(glow && matchMedia('(pointer:fine)').matches){
     addEventListener('pointermove',e=>{glow.style.transform=`translate(${e.clientX}px,${e.clientY}px)`},{passive:true});
   }
+
+
+  // Interactive vision explorer: 4 development drivers.
+  document.querySelectorAll('[data-vision-explorer]').forEach(explorer=>{
+    const tabs=[...explorer.querySelectorAll('[data-vision-tab]')];
+    const panels=[...explorer.querySelectorAll('[data-vision-panel]')];
+    const activate=id=>{
+      tabs.forEach(tab=>{
+        const active=tab.dataset.visionTab===id;
+        tab.classList.toggle('active',active);
+        tab.setAttribute('aria-selected',String(active));
+      });
+      panels.forEach(panel=>{
+        const active=panel.dataset.visionPanel===id;
+        panel.hidden=!active;
+        panel.classList.remove('vision-enter');
+        if(active){
+          void panel.offsetWidth;
+          panel.classList.add('vision-enter');
+        }
+      });
+    };
+    tabs.forEach((tab,index)=>{
+      tab.addEventListener('click',()=>activate(tab.dataset.visionTab));
+      tab.addEventListener('keydown',e=>{
+        if(!['ArrowDown','ArrowRight','ArrowUp','ArrowLeft','Home','End'].includes(e.key)) return;
+        e.preventDefault();
+        let next=index;
+        if(e.key==='ArrowDown'||e.key==='ArrowRight') next=(index+1)%tabs.length;
+        if(e.key==='ArrowUp'||e.key==='ArrowLeft') next=(index-1+tabs.length)%tabs.length;
+        if(e.key==='Home') next=0;
+        if(e.key==='End') next=tabs.length-1;
+        tabs[next].focus();
+        activate(tabs[next].dataset.visionTab);
+      });
+    });
+  });
+
 })();

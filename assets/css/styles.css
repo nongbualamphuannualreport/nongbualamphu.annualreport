@@ -1903,3 +1903,105 @@ html[data-theme="day"] .doc-cards span{color:#7a6069}
   }
   html[data-theme="day"] .kpi-dock article:nth-child(-n+2){border-bottom-color:rgba(107,67,82,.09)}
 }
+
+
+/* =========================================================
+   V2.4.1 — DAY MODE CONTRAST FIX
+   Strengthen readability on the pink/day theme.
+   ========================================================= */
+html[data-theme="day"] body{
+  color:#35212a;
+}
+html[data-theme="day"] .subhero h1,
+html[data-theme="day"] .section-heading h2,
+html[data-theme="day"] .panel-head h2,
+html[data-theme="day"] .panel-head h3,
+html[data-theme="day"] .panel-head h4,
+html[data-theme="day"] .panel-title,
+html[data-theme="day"] .issue-block h3,
+html[data-theme="day"] .project-feature h2,
+html[data-theme="day"] .project-card h3,
+html[data-theme="day"] .general-fact-grid b,
+html[data-theme="day"] .trend-card h3,
+html[data-theme="day"] .download-feature h2,
+html[data-theme="day"] .download-small b,
+html[data-theme="day"] .vision-detail-head h3,
+html[data-theme="day"] .vision-key-grid b,
+html[data-theme="day"] .vision-flow b,
+html[data-theme="day"] .mission-list span,
+html[data-theme="day"] .indicator-grid span,
+html[data-theme="day"] .allocation-list b,
+html[data-theme="day"] .district-insight h3,
+html[data-theme="day"] .district-future b{
+  color:#3a2530;
+}
+html[data-theme="day"] .section-heading h2 em{
+  color:#c4376e;
+}
+html[data-theme="day"] .section-heading small,
+html[data-theme="day"] .panel-kicker,
+html[data-theme="day"] .issue-block span,
+html[data-theme="day"] .project-feature small,
+html[data-theme="day"] .project-card>span,
+html[data-theme="day"] .vision-kicker{
+  color:#b33263;
+  font-weight:800;
+}
+html[data-theme="day"] .section-no{
+  color:rgba(196,58,107,.38);
+}
+html[data-theme="day"] .issue-block i{
+  color:rgba(200,64,112,.38);
+}
+html[data-theme="day"] .status-chip{
+  color:#962a53;
+  background:rgba(223,79,134,.10);
+  border-color:rgba(201,65,114,.24);
+}
+html[data-theme="day"] .section-heading>p,
+html[data-theme="day"] .panel-head p,
+html[data-theme="day"] .general-fact-grid span,
+html[data-theme="day"] .indicator-grid small,
+html[data-theme="day"] .issue-block p,
+html[data-theme="day"] .mission-list small,
+html[data-theme="day"] .download-feature p,
+html[data-theme="day"] .download-small p,
+html[data-theme="day"] .data-note span,
+html[data-theme="day"] .district-insight>p,
+html[data-theme="day"] .vision-detail-head p,
+html[data-theme="day"] .vision-key-grid span,
+html[data-theme="day"] .vision-flow span,
+html[data-theme="day"] .three-concept-grid p,
+html[data-theme="day"] .three-concept-grid li,
+html[data-theme="day"] .trend-card>p,
+html[data-theme="day"] .project-card p,
+html[data-theme="day"] .project-feature p,
+html[data-theme="day"] .pending-grid small,
+html[data-theme="day"] .result-area-list p,
+html[data-theme="day"] .challenge-grid p{
+  color:#68515c;
+}
+html[data-theme="day"] .mobile-dock a{
+  color:#72535f;
+}
+html[data-theme="day"] .mobile-dock a.active{
+  color:#be3368;
+}
+html[data-theme="day"] .footer-brand span,
+html[data-theme="day"] .footer-horizon small,
+html[data-theme="day"] .footer-bottom{
+  color:#715662;
+}
+
+/* Optional extra contrast on strategy cards specifically */
+html[data-theme="day"] .issue-block{
+  background:linear-gradient(150deg,rgba(255,255,255,.96),rgba(255,246,249,.88));
+  border-color:rgba(190,74,111,.18);
+}
+html[data-theme="day"] .indicator-grid article,
+html[data-theme="day"] .mission-list,
+html[data-theme="day"] .vision-detail,
+html[data-theme="day"] .project-feature,
+html[data-theme="day"] .download-feature{
+  border-color:rgba(190,74,111,.16);
+}

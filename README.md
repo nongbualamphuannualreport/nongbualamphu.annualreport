@@ -45,3 +45,10 @@ Annual Report เป็นปีงบประมาณ 2569 แต่ข้อ
 - ผู้ใช้งานสามารถสลับ Theme เองได้ และระบบจำค่าที่เลือกด้วย localStorage
 - Day Mode ใช้ตัวหนังสือเข้มและ Contrast สูง รองรับผู้สูงอายุ
 - ระบบ A / A+ / A++ และ Mobile Responsive Fix ยังคงทำงานครบ
+
+
+## V2.4.1 — Day Mode Contrast Fix
+- ปรับความเข้มของข้อความใน Day Mode ให้มองเห็นชัดขึ้น
+- แก้หัวข้อ Section, หัวข้อ Card, Label, คำอธิบาย และ Status Chip
+- แก้การ์ด 5 ประเด็นการพัฒนา และองค์ประกอบบนหน้า Strategy ให้ Contrast สูงขึ้น
+- เป็น CSS-only patch ใช้อัปทับ V2.4 ได้ทันที

@@ -2705,3 +2705,39 @@ html[data-theme="day"] .detail-back-button{color:#8d153f;background:#fff;border-
     transform:none !important;
   }
 }
+
+
+/* =========================================================
+   V2.5.2 — HERO / KPI OVERLAP FIX
+   Reserve vertical space above the KPI dock on large screens
+   so the vision chip and left hero content never collide.
+   ========================================================= */
+@media (min-width: 1181px){
+  .hero{
+    min-height: 900px !important;
+  }
+  .hero-grid{
+    align-items: start !important;
+  }
+  .hero-copy{
+    padding-bottom: 210px !important; /* reserve space for KPI bar */
+  }
+  .vision-chip{
+    margin-top: 22px;
+    margin-bottom: 10px;
+    max-width: 640px;
+  }
+  .hero-map{
+    margin-bottom: 116px !important;
+  }
+}
+
+/* Safety range for medium desktop / small laptop */
+@media (min-width: 901px) and (max-width: 1180px){
+  .hero-copy{
+    padding-bottom: 56px !important;
+  }
+  .vision-chip{
+    margin-bottom: 8px;
+  }
+}

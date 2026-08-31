@@ -2,29 +2,34 @@ window.NBL_DATA = {
   "meta": {
     "title": "Digital Annual Report จังหวัดหนองบัวลำภู",
     "year": "2569",
-    "plan": "2571–2575",
     "vision": "เกษตรเพิ่มมูลค่า เมืองผ้า น่าอยู่ น่าเที่ยว"
   },
   "province": {
     "area": 3859.1,
+    "areaRaiMillion": 2.4119,
     "districts": 6,
     "subdistricts": 59,
     "villages": 688,
     "communities": 33,
+    "localAuthorities": 68,
+    "pao": 1,
+    "cityMunicipality": 1,
+    "subdistrictMunicipalities": 23,
+    "sao": 43,
     "population": 502088,
-    "male": 249382,
-    "female": 252706,
-    "households": 163997,
+    "householdsSummary69": 102885,
     "gpp": 34700,
-    "realGppGrowth": 5.77,
+    "gppIncrease": 2550,
+    "gppGrowth": 7.93,
+    "gppNortheastRank": 17,
+    "gppThailandRank": 66,
     "incomePerCapita": 74390,
+    "incomeIncrease": 5770,
     "incomeGrowth": 8.41,
-    "tourists": 395199,
-    "touristGrowth": 8.5,
+    "incomeNortheastRank": 20,
+    "incomeThailandRank": 75,
     "tourismRevenue": 493,
-    "tourismRevenueGrowth": 6.69,
-    "hotelGuests": 122542,
-    "occupancyRate": 46.26
+    "visitors": 395199
   },
   "districts": {
     "mueang": {
@@ -33,8 +38,7 @@ window.NBL_DATA = {
       "area": 907.56,
       "subdistricts": 15,
       "villages": 154,
-      "communities": 33,
-      "households": 50559
+      "houses": 50559
     },
     "sibunrueang": {
       "name": "อำเภอศรีบุญเรือง",
@@ -42,8 +46,7 @@ window.NBL_DATA = {
       "area": 830.64,
       "subdistricts": 12,
       "villages": 158,
-      "communities": 0,
-      "households": 33556
+      "houses": 33556
     },
     "naklang": {
       "name": "อำเภอนากลาง",
@@ -51,8 +54,7 @@ window.NBL_DATA = {
       "area": 570.7,
       "subdistricts": 9,
       "villages": 127,
-      "communities": 0,
-      "households": 28749
+      "houses": 28749
     },
     "nonsang": {
       "name": "อำเภอโนนสัง",
@@ -60,8 +62,7 @@ window.NBL_DATA = {
       "area": 577.74,
       "subdistricts": 10,
       "villages": 107,
-      "communities": 0,
-      "households": 18410
+      "houses": 18410
     },
     "nawang": {
       "name": "อำเภอนาวัง",
@@ -69,8 +70,7 @@ window.NBL_DATA = {
       "area": 326.37,
       "subdistricts": 5,
       "villages": 51,
-      "communities": 0,
-      "households": 11706
+      "houses": 11706
     },
     "suwannakhuha": {
       "name": "อำเภอสุวรรณคูหา",
@@ -78,25 +78,30 @@ window.NBL_DATA = {
       "area": 646.08,
       "subdistricts": 8,
       "villages": 91,
-      "communities": 0,
-      "households": 21017
+      "houses": 21017
     }
   },
   "budget2569": {
-    "total": 236.6265,
+    "totalBaht": 236626500,
+    "totalMillion": 236.6265,
     "projects": 20,
-    "activities": 57,
-    "investment": 200.1789,
+    "activitiesInitial": 57,
+    "activitiesAfterTransfer": 64,
+    "investmentBaht": 200178900,
     "investmentPct": 84.6,
-    "recurrent": 36.4476,
+    "recurrentBaht": 36447600,
     "recurrentPct": 15.4,
-    "allotment1": 218.3962,
-    "allotment2": 9.1184,
-    "allotment3": 9.1119
+    "disbursementAsOfSep30": null,
+    "disbursementPct": null,
+    "undisbursed": null,
+    "carryover": null,
+    "returnedBalance": null
   },
   "targets": {
-    "gpp": 5,
-    "income": 5,
-    "tourism": 10
+    "gppGrowth": 5,
+    "incomeGrowth": 5,
+    "tourismRevenueGrowth": 10,
+    "forestAreaGrowth": 1,
+    "wasteManagedCorrectly": 40
   }
 };

@@ -1,20 +1,18 @@
-# Digital Annual Report จังหวัดหนองบัวลำภู — V2 Innovation Platform
+# Digital Annual Report จังหวัดหนองบัวลำภู — V2.1 FY2569 Accessible
 
-Static HTML/CSS/JS website, GitHub + Vercel ready.
+เว็บไซต์ Static HTML/CSS/JS สำหรับ Annual Report ปีงบประมาณ พ.ศ. 2569 เท่านั้น
 
-## Main direction
-- Innovation / Strategic Data Platform
-- Hero uses the image selected by the client (`assets/images/province/innovation-hero.webp`)
-- 6 menus according to project scope
-- Actual source-derived provincial metrics used where available
-- Interactive 6-district map
-- Strategic Horizon พ.ศ. 2571–2575
-- Responsive desktop/tablet/mobile
-- Mobile bottom navigation
-- No CMS/backend in this version
+## การเปลี่ยนแปลงสำคัญ
+- เว็บไซต์แสดงเฉพาะ Annual Report ปีงบประมาณ 2569 และไม่จัดทำ Timeline หลายปี
+- ไฟล์ “ส่วนที่ 1 เล่มแผน 5 ปี” ใช้เฉพาะข้อมูลทั่วไปที่จำเป็น และไม่ใช้เป็นโครงสร้างแผนของเว็บไซต์
+- ข้อมูลทั่วไปจากเอกสารเดิมใช้เฉพาะเพื่ออธิบายบริบทจังหวัด
+- เพิ่มข้อมูลจาก “แบบสรุป ไม่สมบูรณ์ 69”
+- แสดงกรอบเดิม 57 กิจกรรม และหลังโอนเปลี่ยนแปลง 64 กิจกรรม
+- ยอดเบิกจ่าย ณ 30 กันยายน 2569 ที่ยังไม่มีข้อมูล จะแสดง “รอข้อมูลยืนยัน”
+- ปรับขนาดตัวอักษรใหญ่ขึ้นทั้งระบบ
+- มีปุ่ม A / A+ / A++ สำหรับผู้ใช้งานที่ต้องการตัวอักษรใหญ่
+- คง Innovation / Dark Data Platform Design
+- Responsive Desktop / Tablet / Mobile
 
-## Important content note
-The 2571–2575 timeline is displayed as a 5-year horizon only. It does not invent specific year-by-year milestones. Detailed annual milestones can be added once the province supplies them.
-
-## Deploy
-Upload the extracted project root to the existing GitHub repository and commit. Vercel should deploy automatically.
+## หมายเหตุข้อมูลทั่วไป
+Annual Report เป็นปีงบประมาณ 2569 แต่ข้อมูลสถิติบางรายการ เช่น GPP / รายได้ต่อหัว / การท่องเที่ยว เป็นข้อมูลพื้นฐานล่าสุดที่มีใช้ประกอบรายงาน จึงระบุเป็นข้อมูลทั่วไป ไม่ใช่รายงานผลของปีอื่น

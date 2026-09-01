@@ -2741,3 +2741,58 @@ html[data-theme="day"] .detail-back-button{color:#8d153f;background:#fff;border-
     margin-bottom: 8px;
   }
 }
+
+
+/* =========================================================
+   V2.6 — DISTRICT TOURISM MAP + DISTRICT PAGES
+   ========================================================= */
+.district-hover-tooltip{position:fixed;z-index:180;width:290px;max-width:calc(100vw - 20px);padding:16px 17px;border:1px solid rgba(91,225,214,.30);border-radius:17px;background:rgba(3,22,35,.96);color:#eef9fa;box-shadow:0 18px 50px rgba(0,0,0,.42),0 0 32px rgba(68,227,202,.09);backdrop-filter:blur(18px);pointer-events:none;opacity:0;transform:translateY(5px);transition:.14s}
+.district-hover-tooltip.show{opacity:1;transform:none}
+.district-hover-tooltip small{display:block;font-size:11px;color:#73dfd3;font-weight:800;margin-bottom:4px}
+.district-hover-tooltip>b{display:block;font-size:18px;line-height:1.4;margin-bottom:9px}
+.district-hover-tooltip>div{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-top:1px solid rgba(255,255,255,.07);font-size:12px}
+.district-hover-tooltip>div span{color:#94abb0}.district-hover-tooltip>div strong{color:#fff;text-align:right}
+.district-hover-tooltip>em{display:block;margin-top:9px;padding-top:8px;border-top:1px solid rgba(255,255,255,.07);font-style:normal;font-size:11px;font-weight:800;color:#ffd073}
+.map-click-hint{position:absolute;right:0;top:84px;width:220px;padding:16px;border:1px solid var(--line);border-radius:16px;background:rgba(3,24,39,.88)}
+.map-click-hint small{display:block;font-size:9px;letter-spacing:.12em;color:#78a1a7}.map-click-hint b{display:block;font-size:15px;margin:6px 0 3px}.map-click-hint span{font-size:12px;line-height:1.5;color:#91a9ad}
+.district-tourism-cta{display:flex;align-items:center;justify-content:center;margin-top:16px;padding:13px 15px;border-radius:13px;background:linear-gradient(135deg,rgba(38,176,163,.90),rgba(38,115,151,.90));color:#fff;font-size:14px;font-weight:800}
+.district-svg .map-region{cursor:pointer!important}
+
+.district-tourism-hero{position:relative;min-height:610px;padding:118px 0 70px;overflow:hidden}
+.district-tourism-bg{position:absolute;inset:0;background:url('../images/province/innovation-hero.webp') center 44%/cover no-repeat;filter:saturate(.88)}
+.district-tourism-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,14,24,.96),rgba(3,18,30,.84) 46%,rgba(3,18,30,.57)),linear-gradient(180deg,rgba(3,16,27,.46),#041522 98%)}
+.district-breadcrumb{position:relative;z-index:2;margin-bottom:48px}
+.district-tourism-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.district-tourism-copy h1{font-size:clamp(48px,5vw,78px);line-height:1.08;margin:16px 0 12px;letter-spacing:-1.5px}
+.district-tourism-copy>p{max-width:720px;font-size:19px;line-height:1.8;color:#b9cdd0;margin:0 0 22px}
+.district-tourism-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:0;padding:0}
+.district-tourism-stats>div{padding:22px;border-right:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07)}
+.district-tourism-stats>div:nth-child(even){border-right:0}.district-tourism-stats>div:nth-last-child(-n+2){border-bottom:0}
+.district-tourism-stats small{display:block;font-size:13px;color:#88a4aa}.district-tourism-stats b{display:block;font-size:29px;line-height:1.1;margin:6px 0;color:#8ef0e4}.district-tourism-stats span{font-size:12px;color:#829ca1}
+
+.tourism-place-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.tourism-place-card{position:relative;display:grid;grid-template-columns:70px 1fr 32px;gap:16px;min-height:180px;padding:23px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(150deg,rgba(8,39,56,.75),rgba(4,23,37,.61));transition:.22s}
+.tourism-place-card:hover{transform:translateY(-4px);border-color:rgba(92,229,218,.34);box-shadow:0 18px 42px rgba(0,0,0,.22)}
+.tourism-place-no{font-size:36px;font-weight:900;color:rgba(87,226,214,.20)}
+.tourism-place-copy>span{display:block;font-size:12px;font-weight:800;color:#75dfd3;margin-bottom:5px}
+.tourism-place-copy h3{margin:0 0 7px;font-size:23px;line-height:1.45}.tourism-place-copy p{margin:0;font-size:15px;line-height:1.75;color:#92aaae}
+.tourism-place-arrow{align-self:start;width:31px;height:31px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:#8fece2}
+.tourism-source-note{margin-top:20px;padding:19px 21px;border-left:4px solid var(--gold);border-radius:0 16px 16px 0;background:rgba(255,200,90,.055)}
+.tourism-source-note b{display:block;font-size:16px;margin-bottom:4px}.tourism-source-note span{font-size:14px;line-height:1.75;color:#9bb0b4}
+.district-page-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:34px}.district-page-nav a{padding:18px;border:1px solid var(--line);border-radius:17px;background:rgba(7,36,52,.62)}.district-page-nav a.next{text-align:right}.district-page-nav small{display:block;font-size:12px;color:#78969c;margin-bottom:4px}.district-page-nav b{font-size:15px;line-height:1.55}.district-back-map{text-align:center;margin-top:16px}
+
+html[data-theme="day"] .district-hover-tooltip{background:#fff;color:#25171d;border-color:rgba(113,50,71,.22);box-shadow:0 18px 45px rgba(76,36,50,.16)}
+html[data-theme="day"] .district-hover-tooltip small{color:#8d153f!important}html[data-theme="day"] .district-hover-tooltip>b{color:#25171d!important}
+html[data-theme="day"] .district-hover-tooltip>div{border-top-color:rgba(93,47,62,.10)}html[data-theme="day"] .district-hover-tooltip>div span{color:#604a53!important}html[data-theme="day"] .district-hover-tooltip>div strong{color:#25171d!important}html[data-theme="day"] .district-hover-tooltip>em{color:#7a510e!important}
+html[data-theme="day"] .map-click-hint{background:rgba(255,255,255,.94);border-color:rgba(93,47,62,.18)}html[data-theme="day"] .map-click-hint small{color:#8d153f!important}html[data-theme="day"] .map-click-hint b{color:#25171d!important}html[data-theme="day"] .map-click-hint span{color:#5d4650!important}
+html[data-theme="day"] .district-tourism-shade{background:linear-gradient(90deg,rgba(255,255,255,.97),rgba(255,249,251,.91) 47%,rgba(255,248,251,.66)),linear-gradient(180deg,rgba(255,255,255,.38),#fffafc 98%)}
+html[data-theme="day"] .district-tourism-copy h1{color:#25171d!important}html[data-theme="day"] .district-tourism-copy>p{color:#4f3942!important}
+html[data-theme="day"] .district-tourism-stats>div{border-color:rgba(93,47,62,.09)}html[data-theme="day"] .district-tourism-stats small,html[data-theme="day"] .district-tourism-stats span{color:#604a53!important}html[data-theme="day"] .district-tourism-stats b{color:#8d153f!important}
+html[data-theme="day"] .tourism-place-card,html[data-theme="day"] .district-page-nav a{background:#fff!important;border-color:rgba(93,47,62,.18)!important;box-shadow:0 15px 36px rgba(77,38,52,.08)}
+html[data-theme="day"] .tourism-place-no{color:rgba(145,32,72,.46)}html[data-theme="day"] .tourism-place-copy>span{color:#8d153f!important}html[data-theme="day"] .tourism-place-copy h3{color:#25171d!important}html[data-theme="day"] .tourism-place-copy p{color:#4f3942!important}html[data-theme="day"] .tourism-place-arrow{color:#8d153f;border-color:rgba(93,47,62,.18)}
+html[data-theme="day"] .tourism-source-note{background:#fffaf0}html[data-theme="day"] .tourism-source-note b{color:#684608!important}html[data-theme="day"] .tourism-source-note span{color:#4f3942!important}
+
+@media(min-width:1181px){.hero-map .map-compact{width:66%}}
+@media(max-width:1180px){.map-click-hint{position:static;width:100%;margin-top:8px}.hero-map .map-compact{width:100%}.district-tourism-hero-grid{grid-template-columns:1fr}.district-tourism-stats{max-width:700px}}
+@media(max-width:780px){.district-hover-tooltip{display:none!important}.district-tourism-hero{min-height:0;padding:100px 0 52px}.district-breadcrumb{margin-bottom:28px}.district-tourism-copy h1{font-size:40px}.district-tourism-copy>p{font-size:16px}.district-tourism-stats{grid-template-columns:1fr 1fr}.district-tourism-stats>div{padding:16px}.district-tourism-stats b{font-size:23px}.tourism-place-grid{grid-template-columns:1fr}.tourism-place-card{grid-template-columns:48px 1fr;min-height:0;padding:18px}.tourism-place-arrow{display:none}.tourism-place-no{font-size:29px}.tourism-place-copy h3{font-size:20px}.tourism-place-copy p{font-size:14.5px}.district-page-nav{grid-template-columns:1fr}.district-page-nav a.next{text-align:left}}
+@media(max-width:420px){.district-tourism-stats{grid-template-columns:1fr}.district-tourism-stats>div{border-right:0!important}}

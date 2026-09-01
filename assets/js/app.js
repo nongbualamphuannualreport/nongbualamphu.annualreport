@@ -137,35 +137,102 @@
     if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){run();io.disconnect()}},{threshold:.35});io.observe(el)}else run();
   });
 
-  // District map
+  // District map: hover follows mouse with population/area details.
+  // Click/tap opens a separate tourism page for the selected district.
+  const districtPageMap={
+    mueang:'district-mueang.html',
+    nawang:'district-nawang.html',
+    naklang:'district-naklang.html',
+    suwannakhuha:'district-suwannakhuha.html',
+    sibunrueang:'district-sibunrueang.html',
+    nonsang:'district-nonsang.html'
+  };
+
+  let floatingDistrictTooltip=document.querySelector('[data-floating-district-tooltip]');
+  if(!floatingDistrictTooltip){
+    floatingDistrictTooltip=document.createElement('div');
+    floatingDistrictTooltip.className='district-hover-tooltip';
+    floatingDistrictTooltip.setAttribute('data-floating-district-tooltip','');
+    floatingDistrictTooltip.hidden=true;
+    document.body.appendChild(floatingDistrictTooltip);
+  }
+
+  const hideFloatingDistrictTooltip=()=>{
+    floatingDistrictTooltip.hidden=true;
+    floatingDistrictTooltip.classList.remove('show');
+  };
+  const positionFloatingTooltip=e=>{
+    if(!e||floatingDistrictTooltip.hidden)return;
+    const gap=16, rect=floatingDistrictTooltip.getBoundingClientRect();
+    let x=e.clientX+gap, y=e.clientY+gap;
+    if(x+rect.width+10>innerWidth)x=e.clientX-rect.width-gap;
+    if(y+rect.height+10>innerHeight)y=e.clientY-rect.height-gap;
+    floatingDistrictTooltip.style.left=Math.max(8,x)+'px';
+    floatingDistrictTooltip.style.top=Math.max(8,y)+'px';
+  };
+
   document.querySelectorAll('[data-interactive-map]').forEach(root=>{
-    const detail=root.parentElement?.querySelector('[data-district-detail]') || document.querySelector('[data-district-detail]');
-    const tooltip=root.querySelector('[data-district-tooltip]');
+    const detail=root.parentElement?.querySelector('[data-district-detail]')||document.querySelector('[data-district-detail]');
     const districts=d.districts||{};
+    const tourism=window.NBL_DISTRICT_TOURISM||{};
     const nf=new Intl.NumberFormat('th-TH',{maximumFractionDigits:2});
-    const render=id=>{
-      const x=districts[id]; if(!x)return;
-      document.querySelectorAll('[data-district]').forEach(n=>n.classList.toggle('active',n.dataset.district===id));
-      if(detail){
-        detail.innerHTML=`<div class="district-top"><span>ข้อมูลรายอำเภอ</span><i></i></div><h2>${x.name}</h2><p>ข้อมูลทั่วไปสำหรับประกอบ Annual Report 2569</p><div class="district-data">
+
+    const renderSide=id=>{
+      const x=districts[id]; if(!x||!detail)return;
+      const attractionCount=tourism[id]?.attractions?.length||0;
+      detail.innerHTML=`<div class="district-top"><span>ข้อมูลรายอำเภอ</span><i></i></div>
+        <h2>${x.name}</h2>
+        <p>วางเมาส์บนพื้นที่อำเภอเพื่อดูข้อมูล และคลิกเพื่อเปิดหน้าสถานที่ท่องเที่ยว</p>
+        <div class="district-data">
           <div><small>ประชากร</small><b>${nf.format(x.population)}</b><span>คน</span></div>
           <div><small>พื้นที่</small><b>${nf.format(x.area)}</b><span>ตร.กม.</span></div>
           <div><small>ตำบล</small><b>${nf.format(x.subdistricts)}</b><span>แห่ง</span></div>
           <div><small>หมู่บ้าน</small><b>${nf.format(x.villages)}</b><span>แห่ง</span></div>
           <div><small>จำนวนบ้าน</small><b>${nf.format(x.houses)}</b><span>หลัง</span></div>
-        </div><div class="district-future"><b>ข้อมูลโครงการรายอำเภอ</b><span>สามารถเชื่อมเพิ่มภายหลังได้ หากได้รับข้อมูลพื้นที่ดำเนินงานของแต่ละโครงการจากจังหวัด</span></div>`;
-      }
-      if(tooltip){
-        tooltip.innerHTML=`<small>อำเภอที่เลือก</small><b>${x.name}</b><div><span>ประชากร</span><strong>${nf.format(x.population)} คน</strong></div><div><span>พื้นที่</span><strong>${nf.format(x.area)} ตร.กม.</strong></div><div><span>จำนวนบ้าน</span><strong>${nf.format(x.houses)} หลัง</strong></div>`;
-      }
+          <div><small>สถานที่ท่องเที่ยวในหน้าเว็บ</small><b>${attractionCount}</b><span>แห่ง</span></div>
+        </div>
+        <a class="district-tourism-cta" href="${districtPageMap[id]}">ดูสถานที่ท่องเที่ยว ${x.name} →</a>`;
     };
+
+    const showFloating=(id,e)=>{
+      const x=districts[id]; if(!x)return;
+      document.querySelectorAll('[data-district]').forEach(n=>n.classList.toggle('active',n.dataset.district===id));
+      floatingDistrictTooltip.innerHTML=`<small>ข้อมูลอำเภอ</small><b>${x.name}</b>
+        <div><span>ประชากร</span><strong>${nf.format(x.population)} คน</strong></div>
+        <div><span>พื้นที่</span><strong>${nf.format(x.area)} ตร.กม.</strong></div>
+        <div><span>ตำบล / หมู่บ้าน</span><strong>${nf.format(x.subdistricts)} / ${nf.format(x.villages)}</strong></div>
+        <div><span>จำนวนบ้าน</span><strong>${nf.format(x.houses)} หลัง</strong></div>
+        <em>คลิกเพื่อดูสถานที่ท่องเที่ยว →</em>`;
+      floatingDistrictTooltip.hidden=false;
+      floatingDistrictTooltip.classList.add('show');
+      positionFloatingTooltip(e);
+      renderSide(id);
+    };
+
     root.querySelectorAll('[data-district]').forEach(el=>{
-      const id=el.dataset.district; el.tabIndex=0; el.setAttribute('role','button');
-      ['mouseenter','focus','click'].forEach(evt=>el.addEventListener(evt,()=>render(id)));
-      el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();render(id)}});
+      const id=el.dataset.district;
+      el.tabIndex=0;
+      el.setAttribute('role','link');
+      el.setAttribute('aria-label',`${districts[id]?.name||id} คลิกเพื่อดูสถานที่ท่องเที่ยว`);
+      el.addEventListener('pointerenter',e=>showFloating(id,e));
+      el.addEventListener('pointermove',positionFloatingTooltip);
+      el.addEventListener('pointerleave',hideFloatingDistrictTooltip);
+      el.addEventListener('focus',()=>renderSide(id));
+      el.addEventListener('blur',hideFloatingDistrictTooltip);
+      el.addEventListener('click',()=>{if(districtPageMap[id])location.href=districtPageMap[id]});
+      el.addEventListener('keydown',e=>{
+        if(e.key==='Enter'||e.key===' '){
+          e.preventDefault();
+          if(districtPageMap[id])location.href=districtPageMap[id];
+        }
+      });
     });
-    render('mueang');
+
+    renderSide('mueang');
   });
+
+  addEventListener('scroll',hideFloatingDistrictTooltip,{passive:true});
+  addEventListener('resize',hideFloatingDistrictTooltip,{passive:true});
 
   const heroBg=document.querySelector('.hero-bg');
   if(heroBg && matchMedia('(pointer:fine)').matches){

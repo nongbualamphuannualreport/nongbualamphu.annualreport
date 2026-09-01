@@ -137,8 +137,8 @@
     if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){run();io.disconnect()}},{threshold:.35});io.observe(el)}else run();
   });
 
-  // District map: hover follows mouse with population/area details.
-  // Click/tap opens a separate tourism page for the selected district.
+  // District map: hover shows verified district statistics near pointer.
+  // Click/tap opens the district tourism page.
   const districtPageMap={
     mueang:'district-mueang.html',
     nawang:'district-nawang.html',
@@ -161,6 +161,7 @@
     floatingDistrictTooltip.hidden=true;
     floatingDistrictTooltip.classList.remove('show');
   };
+
   const positionFloatingTooltip=e=>{
     if(!e||floatingDistrictTooltip.hidden)return;
     const gap=16, rect=floatingDistrictTooltip.getBoundingClientRect();
@@ -182,14 +183,14 @@
       const attractionCount=tourism[id]?.attractions?.length||0;
       detail.innerHTML=`<div class="district-top"><span>ข้อมูลรายอำเภอ</span><i></i></div>
         <h2>${x.name}</h2>
-        <p>วางเมาส์บนพื้นที่อำเภอเพื่อดูข้อมูล และคลิกเพื่อเปิดหน้าสถานที่ท่องเที่ยว</p>
+        <p>วางเมาส์บนแผนที่เพื่อดูข้อมูลพื้นฐาน และคลิกพื้นที่อำเภอเพื่อเปิดหน้าสถานที่ท่องเที่ยวที่ตรวจสอบแล้ว</p>
         <div class="district-data">
           <div><small>ประชากร</small><b>${nf.format(x.population)}</b><span>คน</span></div>
           <div><small>พื้นที่</small><b>${nf.format(x.area)}</b><span>ตร.กม.</span></div>
           <div><small>ตำบล</small><b>${nf.format(x.subdistricts)}</b><span>แห่ง</span></div>
           <div><small>หมู่บ้าน</small><b>${nf.format(x.villages)}</b><span>แห่ง</span></div>
           <div><small>จำนวนบ้าน</small><b>${nf.format(x.houses)}</b><span>หลัง</span></div>
-          <div><small>สถานที่ท่องเที่ยวในหน้าเว็บ</small><b>${attractionCount}</b><span>แห่ง</span></div>
+          <div><small>สถานที่ท่องเที่ยวที่ยืนยันแล้ว</small><b>${attractionCount}</b><span>แห่ง</span></div>
         </div>
         <a class="district-tourism-cta" href="${districtPageMap[id]}">ดูสถานที่ท่องเที่ยว ${x.name} →</a>`;
     };
